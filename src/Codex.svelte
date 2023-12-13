@@ -77,6 +77,11 @@
     {#if 'count' in $page.data && +$page.data.count > 0}
       <div class="count">{$page.data.count} results</div>
     {/if}
+    {#if $page.url}
+      <span class="breadcrumbs">
+        {$page.url.replace(/^\/api\//, '').replace(/\//, ' / ')}
+      </span>
+    {/if}
   </footer>
 </main>
 
@@ -193,5 +198,14 @@
     margin-top: 1rem;
     color: #6a6c77;
     font-size: 0.8rem;
+  }
+
+  .footer .count {
+    font-weight: 300;
+  }
+
+  .footer .breadcrumbs {
+    margin-left: auto;
+    font-weight: 300;
   }
 </style>
