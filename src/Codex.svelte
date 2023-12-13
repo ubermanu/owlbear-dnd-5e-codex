@@ -15,15 +15,7 @@
   const resourceId = writable(categories[0].url)
   let page = {}
 
-  /**
-   * Sets the current category filter
-   *
-   * @param {any} cat
-   */
-  async function setCategory(cat) {
-    $resourceId = cat.url
-  }
-
+  /** @param {string} path */
   async function fetchDnD(path) {
     const url = `https://www.dnd5eapi.co${path}`
     const response = await fetch(url)
@@ -32,12 +24,23 @@
     return data
   }
 
-  async function renderResource() {
+  /** @param {any} cat */
+  async function setCategory(cat) {
+    $resourceId = cat.url
     page = await fetchDnD($resourceId)
   }
 
+  /** @param {string} query */
+  async function search(query) {
+    if (!query) {
+      page = await fetchDnD($resourceId)
+      return
+    }
+    page = await fetchDnD(`${$resourceId}/?name=${query}`)
+  }
+
   onMount(async () => {
-    await renderResource()
+    page = await fetchDnD($resourceId)
   })
 </script>
 
@@ -53,18 +56,22 @@
       </button>
     {/each}
   </div>
-  <!--  <input-->
-  <!--    class="input"-->
-  <!--    autocomplete="off"-->
-  <!--    type="text"-->
-  <!--    placeholder={inputPlaceholder}-->
-  <!--    on:input={debounce({ delay: 200 }, (e) => search(e.target.value))}-->
-  <!--  />-->
+  <input
+    class="input"
+    autocomplete="off"
+    type="text"
+    placeholder="Search..."
+    on:input={debounce({ delay: 200 }, (e) => search(e.target.value))}
+  />
   <div class="content">
     {#if 'results' in page && Array.isArray(page.results)}
       <ul class="search-results">
         {#each page.results as result}
-          <li>{result.name}</li>
+          <li>
+            <div class="search-item" role="button" tabindex="0">
+              {result.name}
+            </div>
+          </li>
         {/each}
       </ul>
     {:else}
@@ -125,6 +132,10 @@
     color: #fff;
   }
 
+  .input:focus {
+    border-bottom: 1px solid #bb99ff;
+  }
+
   .content {
     flex-grow: 1;
     min-height: 0;
@@ -132,8 +143,7 @@
 
   .search-results {
     margin: 0;
-    padding-right: 0.5rem;
-    padding-left: 0;
+    padding: 0.2rem 0.5rem 0.2rem 0.2rem;
     max-height: 100%;
     overflow-y: auto;
     list-style: none;
@@ -157,7 +167,7 @@
     background: #bb99ff;
   }
 
-  .search-results li {
+  .search-item {
     transition: background 0.1s ease-out;
     cursor: pointer;
     margin-bottom: 0.2rem;
@@ -166,8 +176,13 @@
     font-size: 1rem;
   }
 
-  .search-results li:hover {
+  .search-item:hover {
     background: #3b3d4b;
+  }
+
+  .search-item:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem #bb99ff;
   }
 
   .footer {
