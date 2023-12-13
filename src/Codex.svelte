@@ -1,7 +1,7 @@
 <script>
   import { debounce } from 'radash'
   import { writable } from 'svelte/store'
-  import { onMount } from 'svelte'
+  import { fetchDnD } from './lib/api.js'
 
   const categories = [
     { name: 'Spells', emoji: '🔮', url: '/api/spells' },
@@ -12,36 +12,31 @@
     { name: 'Monsters', emoji: '🐉', url: '/api/monsters' },
   ]
 
-  const resourceId = writable(categories[0].url)
-  let page = {}
+  // TODO: Add types
+  const page = writable({ url: '', data: {} })
 
-  /** @param {string} path */
-  async function fetchDnD(path) {
-    const url = `https://www.dnd5eapi.co${path}`
-    const response = await fetch(url)
-    const data = await response.json()
-    console.log(data)
-    return data
-  }
+  /** @param {string} url */
+  async function goto(url) {
+    if (url === $page.url) {
+      return
+    }
 
-  /** @param {any} cat */
-  async function setCategory(cat) {
-    $resourceId = cat.url
-    page = await fetchDnD($resourceId)
+    if (url.length === 0) {
+      page.set({ url: '', data: {} })
+      return
+    }
+
+    $page.url = url
+    $page.data = await fetchDnD(url)
   }
 
   /** @param {string} query */
   async function search(query) {
     if (!query) {
-      page = await fetchDnD($resourceId)
-      return
+      await goto('')
     }
-    page = await fetchDnD(`${$resourceId}/?name=${query}`)
+    // TODO: Go to with search params
   }
-
-  onMount(async () => {
-    page = await fetchDnD($resourceId)
-  })
 </script>
 
 <main>
@@ -49,8 +44,8 @@
     {#each categories as cat}
       <button
         class="category"
-        on:click={() => setCategory(cat)}
-        class:active={$resourceId === cat.url}
+        on:click={() => goto(cat.url)}
+        class:active={$page.url === cat.url}
       >
         {cat.emoji}
       </button>
@@ -64,23 +59,23 @@
     on:input={debounce({ delay: 200 }, (e) => search(e.target.value))}
   />
   <div class="content">
-    {#if 'results' in page && Array.isArray(page.results)}
+    {#if 'results' in $page.data && Array.isArray($page.data.results)}
       <ul class="search-results">
-        {#each page.results as result}
+        {#each $page.data.results as item}
           <li>
-            <div class="search-item" role="button" tabindex="0">
-              {result.name}
-            </div>
+            <button class="search-item" on:click={() => goto(item.url)}>
+              {item.name}
+            </button>
           </li>
         {/each}
       </ul>
     {:else}
-      <pre>{JSON.stringify(page, null, 2)}</pre>
+      <pre style="white-space: pre-wrap;">{JSON.stringify($page, null, 2)}</pre>
     {/if}
   </div>
   <footer class="footer">
-    {#if 'count' in page && +page.count > 0}
-      <div class="count">{page.count} results</div>
+    {#if 'count' in $page.data && +$page.data.count > 0}
+      <div class="count">{$page.data.count} results</div>
     {/if}
   </footer>
 </main>
@@ -168,12 +163,18 @@
   }
 
   .search-item {
+    display: block;
     transition: background 0.1s ease-out;
     cursor: pointer;
     margin-bottom: 0.2rem;
+    outline: none;
+    border: none;
     border-radius: 0.2rem;
+    background: none;
     padding: 0.5rem;
+    width: 100%;
     font-size: 1rem;
+    text-align: left;
   }
 
   .search-item:hover {
