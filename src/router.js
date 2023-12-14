@@ -11,6 +11,7 @@ import Feat from './views/Feat.svelte'
 import Feature from './views/Feature.svelte'
 import Language from './views/Language.svelte'
 import MagicItem from './views/MagicItem.svelte'
+import MagicSchool from './views/MagicSchool.svelte'
 import Monster from './views/Monster.svelte'
 import Proficiency from './views/Proficiency.svelte'
 import Rule from './views/Rule.svelte'
@@ -68,6 +69,10 @@ const router = [
   {
     match: /^\/api\/magic-items\/.*/,
     component: MagicItem,
+  },
+  {
+    match: /^\/api\/magic-schools\/.*/,
+    component: MagicSchool,
   },
   {
     match: /^\/api\/monsters\/.*/,
