@@ -1,5 +1,6 @@
 import AbilityScore from './views/AbilityScore.svelte'
 import Class from './views/Class.svelte'
+import Condition from './views/Condition.svelte'
 import DamageType from './views/DamageType.svelte'
 import Debug from './views/Debug.svelte'
 import Equipment from './views/Equipment.svelte'
@@ -10,6 +11,10 @@ const router = [
   {
     match: /^\/api\/ability-scores\/.*/,
     component: AbilityScore,
+  },
+  {
+    match: /^\/api\/conditions\/.*/,
+    component: Condition,
   },
   {
     match: /^\/api\/skills\/.*/,
