@@ -56,11 +56,11 @@
   {/if}
 </dl>
 
-<p class="description">
+<div class="description">
   {#each data.desc as desc}
-    <p>{@html desc}</p>
+    <p>{desc}</p>
   {/each}
-</p>
+</div>
 
 {#if data.higher_level?.length > 0}
   <p class="description">

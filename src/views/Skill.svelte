@@ -10,4 +10,8 @@
   <span class="tag">{data.ability_score.name}</span>
 </p>
 
-<p class="description">{@html data.desc.join('<br>')}</p>
+<p class="description">
+  {#each data.desc as desc}
+    <p>{desc}</p>
+  {/each}
+</p>
