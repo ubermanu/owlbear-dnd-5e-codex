@@ -1,4 +1,5 @@
 import Class from './views/Class.svelte'
+import DamageType from './views/DamageType.svelte'
 import Debug from './views/Debug.svelte'
 import Equipment from './views/Equipment.svelte'
 import Skill from './views/Skill.svelte'
@@ -20,6 +21,10 @@ const router = [
   {
     match: /^\/api\/classes\/.*/,
     component: Class,
+  },
+  {
+    match: /^\/api\/damage-types\/.*/,
+    component: DamageType,
   },
 ]
 
