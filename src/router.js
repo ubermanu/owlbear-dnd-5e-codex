@@ -6,6 +6,7 @@ import Condition from './views/Condition.svelte'
 import DamageType from './views/DamageType.svelte'
 import Debug from './views/Debug.svelte'
 import Equipment from './views/Equipment.svelte'
+import EquipmentCategory from './views/EquipmentCategory.svelte'
 import Skill from './views/Skill.svelte'
 import Spell from './views/Spell.svelte'
 
@@ -23,28 +24,32 @@ const router = [
     component: Background,
   },
   {
+    match: /^\/api\/classes\/.*/,
+    component: Class,
+  },
+  {
     match: /^\/api\/conditions\/.*/,
     component: Condition,
   },
   {
-    match: /^\/api\/skills\/.*/,
-    component: Skill,
+    match: /^\/api\/damage-types\/.*/,
+    component: DamageType,
   },
   {
     match: /^\/api\/equipment\/.*/,
     component: Equipment,
   },
   {
+    match: /^\/api\/equipment-categories\/.*/,
+    component: EquipmentCategory,
+  },
+  {
     match: /^\/api\/spells\/.*/,
     component: Spell,
   },
   {
-    match: /^\/api\/classes\/.*/,
-    component: Class,
-  },
-  {
-    match: /^\/api\/damage-types\/.*/,
-    component: DamageType,
+    match: /^\/api\/skills\/.*/,
+    component: Skill,
   },
 ]
 
