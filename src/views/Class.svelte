@@ -1,4 +1,6 @@
 <script>
+  import Link from '../components/Link.svelte'
+
   /** @type {import('../types.js').Class} */
   export let data
 </script>
@@ -8,26 +10,26 @@
 <h3>Saving Throws</h3>
 <div class="tags">
   {#each data.saving_throws as saving_throw}
-    <span class="tag">{saving_throw.name}</span>
+    <Link url={saving_throw.url} class="tag">{saving_throw.name}</Link>
   {/each}
 </div>
 
 <h3>Proficiencies</h3>
 <div class="tags">
   {#each data.proficiencies as proficiency}
-    <span class="tag">{proficiency.name}</span>
+    <Link url={proficiency.url} class="tag">{proficiency.name}</Link>
   {/each}
 </div>
 
 <h3>Starting Equipment</h3>
 <div class="tags">
   {#each data.starting_equipment as starting_equipment}
-    <span class="tag">
+    <Link url={starting_equipment.equipment.url} class="tag">
       {starting_equipment.equipment.name}
       {#if starting_equipment.quantity > 1}
         ({starting_equipment.quantity})
       {/if}
-    </span>
+    </Link>
   {/each}
 </div>
 
