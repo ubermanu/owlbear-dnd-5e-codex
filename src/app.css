@@ -170,3 +170,27 @@ button.tag:hover {
   border: 2px solid #292d3c;
   padding: 0.25em 0.5em;
 }
+
+.levels {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background: #232632;
+  width: fit-content;
+}
+
+.levels th {
+  padding: 0.2rem 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.levels td {
+  padding: 0.2rem 1rem;
+}
+
+.levels td:first-child {
+  text-align: center;
+}

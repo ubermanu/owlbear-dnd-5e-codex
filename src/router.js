@@ -18,6 +18,7 @@ import Rule from './views/Rule.svelte'
 import RuleSection from './views/RuleSection.svelte'
 import Skill from './views/Skill.svelte'
 import Spell from './views/Spell.svelte'
+import Subclass from './views/Subclass.svelte'
 import Trait from './views/Trait.svelte'
 import WeaponProperty from './views/WeaponProperty.svelte'
 
@@ -97,6 +98,10 @@ const router = [
   {
     match: /^\/api\/spells\/.*/,
     component: Spell,
+  },
+  {
+    match: /^\/api\/subclasses\/.*/,
+    component: Subclass,
   },
   {
     match: /^\/api\/traits\/.*/,

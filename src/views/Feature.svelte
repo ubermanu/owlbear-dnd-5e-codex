@@ -1,5 +1,6 @@
 <script>
   import { md } from '../lib/format.js'
+  import Link from '../components/Link.svelte'
 
   export let data
 </script>
@@ -14,7 +15,9 @@
 
   <div class="stat-item">
     <dt>Class</dt>
-    <dd>{data.class.name}</dd>
+    <dd>
+      <Link url={data.class.url}>{data.class.name}</Link>
+    </dd>
   </div>
 </dl>
 
