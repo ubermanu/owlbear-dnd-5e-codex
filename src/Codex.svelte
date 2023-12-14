@@ -7,12 +7,14 @@
   import Armor from './icons/Armor.svelte'
   import Wand from './icons/Wand.svelte'
   import Dragon from './icons/Dragon.svelte'
+  import Star from './icons/Star.svelte'
+  import Priest from './icons/Priest.svelte'
 
   const categories = [
     { name: 'Spells', icon: Wand, url: '/api/spells' },
-    { name: 'Skills', icon: null, url: '/api/skills' },
+    { name: 'Skills', icon: Star, url: '/api/skills' },
     { name: 'Equipment', icon: Armor, url: '/api/equipment' },
-    { name: 'Classes', icon: null, url: '/api/classes' },
+    { name: 'Classes', icon: Priest, url: '/api/classes' },
     { name: 'Monsters', icon: Dragon, url: '/api/monsters' },
   ]
 
@@ -41,6 +43,8 @@
     }
     // TODO: Go to with search params
   }
+
+  // TODO: Update input placeholder (search by name, etc.)
 </script>
 
 <main>
