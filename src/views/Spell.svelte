@@ -1,4 +1,6 @@
 <script>
+  import { goto } from '../lib/navigation.js'
+
   /** @type {import('../types.js').Spell} */
   export let data
 </script>
@@ -54,7 +56,11 @@
   {/if}
 </dl>
 
-<p class="description">{@html data.desc.join('<br>')}</p>
+<p class="description">
+  {#each data.desc as desc}
+    <p>{@html desc}</p>
+  {/each}
+</p>
 
 {#if data.higher_level?.length > 0}
   <p class="description">
@@ -71,7 +77,7 @@
   <p class="available">
     <span>Available for</span>
     {#each data.classes as cls}
-      <span class="tag">{cls.name}</span>
+      <button class="tag" on:click={() => goto(cls.url)}>{cls.name}</button>
     {/each}
   </p>
 {/if}
@@ -84,6 +90,6 @@
   }
 
   .available {
-    font-size: 0.8em;
+    margin-top: 1em;
   }
 </style>
