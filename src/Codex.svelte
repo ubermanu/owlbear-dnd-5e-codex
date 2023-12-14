@@ -1,42 +1,13 @@
 <script>
   import { debounce } from 'radash'
-  import { writable } from 'svelte/store'
-  import { fetchDnD } from './lib/api.js'
   import Spell from './views/Spell.svelte'
   import Class from './views/Class.svelte'
-  import Armor from './icons/Armor.svelte'
-  import Wand from './icons/Wand.svelte'
-  import Dragon from './icons/Dragon.svelte'
-  import Star from './icons/Star.svelte'
-  import Priest from './icons/Priest.svelte'
   import Skill from './views/Skill.svelte'
   import Equipment from './views/Equipment.svelte'
-
-  const categories = [
-    { name: 'Spells', icon: Wand, url: '/api/spells' },
-    { name: 'Skills', icon: Star, url: '/api/skills' },
-    { name: 'Equipment', icon: Armor, url: '/api/equipment' },
-    { name: 'Classes', icon: Priest, url: '/api/classes' },
-    { name: 'Monsters', icon: Dragon, url: '/api/monsters' },
-  ]
-
-  // TODO: Add types
-  const page = writable({ url: '', data: {} })
-
-  /** @param {string} url */
-  async function goto(url) {
-    if (url === $page.url) {
-      return
-    }
-
-    if (url.length === 0) {
-      page.set({ url: '', data: {} })
-      return
-    }
-
-    $page.url = url
-    $page.data = await fetchDnD(url)
-  }
+  import { goto } from './lib/navigation.js'
+  import { page } from './lib/stores.js'
+  import { categories } from './lib/api.js'
+  import Breadcrumbs from './components/Breadcrumbs.svelte'
 
   /** @param {string} query */
   async function search(query) {
@@ -50,21 +21,6 @@
 </script>
 
 <main>
-  <div class="categories">
-    {#each categories as cat}
-      <button
-        class="category"
-        on:click={() => goto(cat.url)}
-        class:active={$page.url.startsWith(cat.url)}
-        title={cat.name}
-      >
-        {#if cat.icon}
-          <svelte:component this={cat.icon} />
-        {/if}
-        <span>{cat.name}</span>
-      </button>
-    {/each}
-  </div>
   <input
     class="input"
     autocomplete="off"
@@ -94,17 +50,22 @@
         <Equipment data={$page.data} />
       {:else}
         <pre>{JSON.stringify($page, null, 2)}</pre>
+        <ul class="search-results">
+          {#each categories as item}
+            <li>
+              <button class="search-item" on:click={() => goto(item.url)}>
+                {item.name}
+              </button>
+            </li>
+          {/each}
+        </ul>
       {/if}
     </div>
   </div>
   <footer class="footer">
+    <Breadcrumbs />
     {#if 'count' in $page.data && +$page.data.count > 0}
       <div class="count">{$page.data.count} results</div>
-    {/if}
-    {#if $page.url}
-      <span class="breadcrumbs">
-        {$page.url.replace(/^\/api\//, '').replace(/\//, ' / ')}
-      </span>
     {/if}
   </footer>
 </main>
@@ -116,34 +77,6 @@
     box-sizing: border-box;
     padding: 1rem;
     height: 100vh;
-  }
-
-  .categories {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .category {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    background: none;
-    padding: 0;
-    font-size: 0.9em;
-  }
-
-  .category :global(svg) {
-    width: 1.3rem;
-  }
-
-  .category.active {
-    color: #bb99ff;
   }
 
   .input {
@@ -236,10 +169,6 @@
   }
 
   .footer .count {
-    font-weight: 300;
-  }
-
-  .footer .breadcrumbs {
     margin-left: auto;
     font-weight: 300;
   }
