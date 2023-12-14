@@ -1,7 +1,6 @@
 <script>
   /** @type {import('../types.js').Equipment} */
   export let data
-  console.log(data)
 </script>
 
 <h2 class="title">{data.name}</h2>
