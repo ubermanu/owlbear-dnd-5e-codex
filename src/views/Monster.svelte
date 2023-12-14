@@ -3,6 +3,7 @@
   import fracty from 'fracty'
   import Link from '../components/Link.svelte'
   import { API_URL } from '../lib/api.js'
+  import { md } from '../lib/format.js'
 
   /** @type {import('../types.js').Monster} */
   export let data
@@ -193,7 +194,7 @@
 {#if data.desc}
   <h3>Description</h3>
   <div class="description">
-    <p>{data.desc}</p>
+    {@html md(data.desc)}
   </div>
 {/if}
 

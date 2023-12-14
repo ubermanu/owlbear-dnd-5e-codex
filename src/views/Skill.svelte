@@ -1,5 +1,6 @@
 <script>
   import Link from '../components/Link.svelte'
+  import { md } from '../lib/format.js'
 
   /** @type {import('../types.js').Skill} */
   export let data
@@ -18,8 +19,6 @@
   </div>
 </dl>
 
-<p class="description">
-  {#each data.desc as desc}
-    <p>{desc}</p>
-  {/each}
-</p>
+<div class="description">
+  {@html md(data.desc)}
+</div>

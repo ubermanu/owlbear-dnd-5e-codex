@@ -1,4 +1,6 @@
 <script>
+  import { md } from '../lib/format.js'
+
   export let data
 </script>
 
@@ -17,7 +19,5 @@
 </dl>
 
 <div class="description">
-  {#each data.desc as desc}
-    <p>{desc}</p>
-  {/each}
+  {@html md(data.desc)}
 </div>

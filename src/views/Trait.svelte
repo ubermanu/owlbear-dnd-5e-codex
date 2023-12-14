@@ -1,5 +1,6 @@
 <script>
   import Link from '../components/Link.svelte'
+  import { md } from '../lib/format.js'
 
   export let data
 </script>
@@ -30,9 +31,7 @@
 {#if data.desc}
   <h3>Description</h3>
   <div class="description">
-    {#each data.desc as desc}
-      <p>{desc}</p>
-    {/each}
+    {@html md(data.desc)}
   </div>
 {/if}
 

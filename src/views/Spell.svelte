@@ -1,5 +1,6 @@
 <script>
   import Link from '../components/Link.svelte'
+  import { md } from '../lib/format.js'
 
   /** @type {import('../types.js').Spell} */
   export let data
@@ -25,7 +26,9 @@
 
   <div class="stat-item">
     <dt>School</dt>
-    <dd>{data.school?.name}</dd>
+    <dd>
+      <Link url={data.school.url}>{data.school.name}</Link>
+    </dd>
   </div>
 
   <div class="stat-item">
@@ -51,16 +54,20 @@
   {#if data.damage}
     <div class="stat-item">
       <dt>Damage / Effect</dt>
-      <dd>{data.damage.damage_type.name}</dd>
+      <dd>
+        <Link url={data.damage.damage_type.url}>
+          {data.damage.damage_type.name}
+        </Link>
+      </dd>
     </div>
   {/if}
 </dl>
 
-<div class="description">
-  {#each data.desc as desc}
-    <p>{desc}</p>
-  {/each}
-</div>
+{#if data.desc}
+  <div class="description">
+    {@html md(data.desc)}
+  </div>
+{/if}
 
 {#if data.higher_level?.length > 0}
   <p class="description">

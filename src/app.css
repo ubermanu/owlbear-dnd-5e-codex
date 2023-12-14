@@ -142,6 +142,16 @@ button.tag:hover {
   margin-bottom: 0.15em;
 }
 
+.description b,
+.description strong {
+  font-weight: 600;
+}
+
+.description em,
+.description i {
+  font-style: italic;
+}
+
 .description table {
   margin-bottom: 1em;
   border: 1px solid #292d3c;

@@ -1,5 +1,6 @@
 <script>
   import Link from '../components/Link.svelte'
+  import { md } from '../lib/format.js'
 
   /** @type {import('../types.js').AbilityScore} */
   export let data
@@ -8,9 +9,7 @@
 <h2 class="title">{data.full_name}</h2>
 
 <div class="description">
-  {#each data.desc as desc}
-    <p>{desc}</p>
-  {/each}
+  {@html md(data.desc)}
 </div>
 
 <div class="skills">

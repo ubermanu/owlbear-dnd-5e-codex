@@ -1,4 +1,6 @@
 <script>
+  import { md } from '../lib/format.js'
+
   /** @type {import('../types.js').Equipment} */
   export let data
 </script>
@@ -77,9 +79,7 @@
 </dl>
 
 <div class="description">
-  {#each data.desc as desc}
-    <p>{desc}</p>
-  {/each}
+  {@html md(data.desc)}
 </div>
 
 {#if data.special}
