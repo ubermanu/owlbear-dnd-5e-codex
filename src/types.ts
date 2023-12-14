@@ -27,3 +27,58 @@ export interface Spell {
   subclasses: Resource[]
   url: string
 }
+
+interface EquipmentOption {
+  desc: string
+  choose: number
+  type: string
+  from: {
+    option_set_type: string
+    options: {
+      option_type: string
+      item?: Resource
+      count?: number
+      choice?: EquipmentOption
+    }[]
+  }
+}
+
+export interface Class {
+  index: string
+  name: string
+  hit_die: number
+  proficiency_choices: {
+    desc: string
+    choose: number
+    type: string
+    from: {
+      option_set_type: string
+      options: Resource[]
+    }
+  }[]
+  proficiencies: Resource[]
+  saving_throws: Resource[]
+  starting_equipment: {
+    equipment: Resource
+    quantity: number
+  }[]
+  starting_equipment_options: {
+    desc: string
+    choose: number
+    type: string
+    from: {
+      option_set_type: string
+      options: EquipmentOption[]
+    }
+  }[]
+  class_levels: string
+  multi_classing: {
+    prerequisites: {
+      ability_score: Resource
+      minimum_score: number
+    }[]
+    proficiencies: Resource[]
+  }
+  subclasses: Resource[]
+  url: string
+}

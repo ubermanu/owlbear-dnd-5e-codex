@@ -3,6 +3,7 @@
   import { writable } from 'svelte/store'
   import { fetchDnD } from './lib/api.js'
   import Spell from './views/Spell.svelte'
+  import Class from './views/Class.svelte'
 
   const categories = [
     { name: 'Spells', emoji: '🔮', url: '/api/spells' },
@@ -73,6 +74,8 @@
         </ul>
       {:else if $page.url.startsWith('/api/spells/')}
         <Spell data={$page.data} />
+      {:else if $page.url.startsWith('/api/classes/')}
+        <Class data={$page.data} />
       {:else}
         <pre>{JSON.stringify($page, null, 2)}</pre>
       {/if}
@@ -153,6 +156,7 @@
 
   .scroll-area::-webkit-scrollbar {
     width: 0.5rem;
+    height: 0.5rem;
   }
 
   .scroll-area::-webkit-scrollbar-track {
