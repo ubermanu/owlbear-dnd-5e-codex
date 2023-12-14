@@ -2,9 +2,17 @@
   import Case from 'case'
   import fracty from 'fracty'
   import Link from '../components/Link.svelte'
+  import { API_URL } from '../lib/api.js'
 
+  /** @type {import('../types.js').Monster} */
   export let data
 </script>
+
+{#if data.image}
+  <div class="image">
+    <img src={API_URL.concat(data.image)} width="200" alt="" />
+  </div>
+{/if}
 
 <h2 class="title">{data.name}</h2>
 
@@ -16,12 +24,6 @@
   {/if}
   {data.alignment}
 </p>
-
-<!--{#if data.image}-->
-<!--  <div class="image">-->
-<!--&lt;!&ndash;    <img src={url(data.image)} width="100" alt="" />&ndash;&gt;-->
-<!--  </div>-->
-<!--{/if}-->
 
 <dl class="stats">
   <div class="stat-item">
@@ -99,7 +101,7 @@
   <h3>Senses</h3>
   <div class="senses">
     {#each Object.entries(data.senses) as [sense, value]}
-      <span>
+      <span class="tag">
         {Case.sentence(sense)}
         {#if value}
           {value}
@@ -109,9 +111,83 @@
   </div>
 {/if}
 
+{#if data.special_abilities?.length > 0}
+  <h3>Special Abilities</h3>
+  <div class="special-abilities">
+    {#each data.special_abilities as ability}
+      <div class="special-ability">
+        <h4>{ability.name}</h4>
+        <p>{ability.desc}</p>
+      </div>
+    {/each}
+  </div>
+{/if}
+
+{#if data.actions?.length > 0}
+  <h3>Actions</h3>
+  <div class="actions">
+    {#each data.actions as action}
+      <div class="action">
+        <h4>{action.name}</h4>
+        <p>{action.desc}</p>
+      </div>
+    {/each}
+  </div>
+{/if}
+
+{#if data.legendary_actions?.length > 0}
+  <h3>Legendary Actions</h3>
+  <div class="legendary-actions">
+    {#each data.legendary_actions as action}
+      <div class="legendary-action">
+        <h4>{action.name}</h4>
+        <p>{action.desc}</p>
+      </div>
+    {/each}
+  </div>
+{/if}
+
+{#if data.damage_vulnerabilities?.length > 0}
+  <h3>Damage Vulnerabilities</h3>
+  {#each data.damage_vulnerabilities as damage}
+    <Link class="tag" url="/api/damage-types/{damage}">
+      {Case.sentence(damage)}
+    </Link>
+  {/each}
+{/if}
+
+{#if data.damage_resistances?.length > 0}
+  <h3>Damage Resistances</h3>
+  {#each data.damage_resistances as damage}
+    <Link class="tag" url="/api/damage-types/{damage}">
+      {Case.sentence(damage)}
+    </Link>
+  {/each}
+{/if}
+
+{#if data.damage_immunities?.length > 0}
+  <h3>Damage Immunities</h3>
+  {#each data.damage_immunities as damage}
+    <Link class="tag" url="/api/damage-types/{damage}">
+      {Case.sentence(damage)}
+    </Link>
+  {/each}
+{/if}
+
+{#if data.condition_immunities?.length > 0}
+  <h3>Condition Immunities</h3>
+  {#each data.condition_immunities as condition}
+    <Link class="tag" url={condition.url}>
+      {Case.sentence(condition.name)}
+    </Link>
+  {/each}
+{/if}
+
 {#if data.languages}
   <h3>Languages</h3>
-  <p>{Case.sentence(data.languages)}</p>
+  {#each data.languages.split(',') as language}
+    <span class="tag">{Case.sentence(language.trim())}</span>
+  {/each}
 {/if}
 
 {#if data.desc}
@@ -122,14 +198,26 @@
 {/if}
 
 <style>
+  .image {
+    float: right;
+    margin: 1rem;
+  }
+
+  .image img {
+    display: block;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+  }
+
   .subtitle {
     font-style: italic;
   }
 
   .abilities {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
     border-collapse: collapse;
     border-spacing: 0;
+    background: #232632;
     width: fit-content;
   }
 
@@ -143,5 +231,10 @@
   .abilities td {
     padding: 0.2rem 1rem;
     text-align: center;
+  }
+
+  h4 {
+    margin-bottom: 0.2em;
+    color: #bb99ff;
   }
 </style>

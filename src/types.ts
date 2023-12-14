@@ -137,3 +137,62 @@ export interface Proficiency {
   reference: Resource
   url: string
 }
+
+export interface Monster {
+  index: string
+  name: string
+  size: string
+  type: string
+  subtype: string
+  alignment: string
+  armor_class: number
+  hit_points: number
+  hit_dice: string
+  xp: number
+  desc?: string
+  image?: string
+  speed: {
+    walk: number
+    swim?: number
+    fly?: number
+    burrow?: number
+    climb?: number
+  }
+  strength: number
+  dexterity: number
+  constitution: number
+  intelligence: number
+  wisdom: number
+  charisma: number
+  proficiencies: {
+    proficiency: Resource
+    value: number
+  }[]
+  proficiency_bonus: number
+  damage_vulnerabilities: string[]
+  damage_resistances: string[]
+  damage_immunities: string[]
+  condition_immunities: Resource[]
+  senses: {
+    darkvision?: number
+    blindsight?: number
+    tremorsense?: number
+    truesight?: number
+    passive_perception?: number
+  }
+  languages: string
+  challenge_rating: number
+  special_abilities: {
+    name: string
+    desc: string
+  }[]
+  actions: {
+    name: string
+    desc: string
+  }[]
+  legendary_actions: {
+    name: string
+    desc: string
+  }[]
+  url: string
+}

@@ -1,7 +1,8 @@
+export const API_URL = 'https://www.dnd5eapi.co'
+
 /** @param {string} path */
 export async function fetchDnD(path) {
-  const url = `https://www.dnd5eapi.co${path}`
-  const response = await fetch(url)
+  const response = await fetch(API_URL.concat(path))
   const data = await response.json()
   console.log(data)
   return data
