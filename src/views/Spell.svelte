@@ -67,6 +67,15 @@
   <p class="material">* ({data.material})</p>
 {/if}
 
+{#if data.classes}
+  <p class="available">
+    <span>Available for</span>
+    {#each data.classes as cls}
+      <span class="tag">{cls.name}</span>
+    {/each}
+  </p>
+{/if}
+
 <style>
   .title {
     margin-top: 0;
@@ -97,7 +106,22 @@
   }
 
   .material {
+    color: rgba(255, 255, 255, 0.7);
     font-style: italic;
     font-size: 0.8em;
+  }
+
+  .available {
+    font-size: 0.8em;
+  }
+
+  .tag {
+    display: inline-block;
+    margin-bottom: 0.5em;
+    margin-left: 0.5em;
+    border-radius: 0.2em;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.2em 0.5em;
+    color: #fff;
   }
 </style>
