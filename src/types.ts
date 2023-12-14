@@ -87,10 +87,34 @@ export interface Skill {
   index: string
   name: string
   desc: string[]
-  ability_score: {
-    index: string
-    name: string
-    url: string
-  }
+  ability_score: Resource
   url: string
+}
+
+export interface Equipment {
+  index: string
+  name: string
+  equipment_category: Resource
+  gear_category?: Resource
+  category_range?: string
+  range?: {
+    normal: number
+  }
+  cost: {
+    quantity: number
+    unit: string
+  }
+  weight: number
+  desc: string[]
+  special: string[]
+  url: string
+  contents: any[]
+  properties?: Resource[]
+  weapon_category?: string
+  weapon_range?: string
+  damage?: {
+    damage_dice: string
+    damage_type: Resource
+  }
+  tool_category?: string
 }
