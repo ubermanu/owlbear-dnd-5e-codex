@@ -1,6 +1,6 @@
 <script>
-  import { marked } from 'marked'
   import Link from '../components/Link.svelte'
+  import { md } from '../lib/format.js'
 
   export let data
 </script>
@@ -24,6 +24,6 @@
 
 {#if data.desc}
   <div class="description">
-    {@html marked(data.desc.join('\n\n').replace(/\|\n\n\|/g, '|\n|'))}
+    {@html md(data.desc)}
   </div>
 {/if}

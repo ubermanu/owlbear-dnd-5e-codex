@@ -98,6 +98,50 @@ button.tag:hover {
   outline-offset: 0.25rem;
 }
 
+.description h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.description h3 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.description h4 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.description h5 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.description p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.description ul {
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+  list-style: disc;
+}
+
+.description li {
+  margin-bottom: 0.15em;
+}
+
 .description table {
   margin-bottom: 1em;
   border: 1px solid #292d3c;

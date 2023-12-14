@@ -13,6 +13,8 @@ import Language from './views/Language.svelte'
 import MagicItem from './views/MagicItem.svelte'
 import Monster from './views/Monster.svelte'
 import Proficiency from './views/Proficiency.svelte'
+import Rule from './views/Rule.svelte'
+import RuleSection from './views/RuleSection.svelte'
 import Skill from './views/Skill.svelte'
 import Spell from './views/Spell.svelte'
 import Trait from './views/Trait.svelte'
@@ -76,16 +78,24 @@ const router = [
     component: Proficiency,
   },
   {
-    match: /^\/api\/traits\/.*/,
-    component: Trait,
+    match: /^\/api\/rules\/.*/,
+    component: Rule,
+  },
+  {
+    match: /^\/api\/rule-sections\/.*/,
+    component: RuleSection,
+  },
+  {
+    match: /^\/api\/skills\/.*/,
+    component: Skill,
   },
   {
     match: /^\/api\/spells\/.*/,
     component: Spell,
   },
   {
-    match: /^\/api\/skills\/.*/,
-    component: Skill,
+    match: /^\/api\/traits\/.*/,
+    component: Trait,
   },
   {
     match: /^\/api\/weapon-properties\/.*/,
