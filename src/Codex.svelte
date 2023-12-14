@@ -1,12 +1,9 @@
 <script>
   import { debounce } from 'radash'
-  import Spell from './views/Spell.svelte'
-  import Class from './views/Class.svelte'
-  import Skill from './views/Skill.svelte'
-  import Equipment from './views/Equipment.svelte'
   import { goto } from './lib/navigation.js'
   import { page } from './lib/stores.js'
   import { categories } from './lib/api.js'
+  import { view } from './router.js'
   import Breadcrumbs from './components/Breadcrumbs.svelte'
 
   /** @param {string} query */
@@ -40,16 +37,9 @@
             </li>
           {/each}
         </ul>
-      {:else if $page.url.startsWith('/api/spells/')}
-        <Spell data={$page.data} />
-      {:else if $page.url.startsWith('/api/classes/')}
-        <Class data={$page.data} />
-      {:else if $page.url.startsWith('/api/skills/')}
-        <Skill data={$page.data} />
-      {:else if $page.url.startsWith('/api/equipment/')}
-        <Equipment data={$page.data} />
+      {:else if $page.url}
+        <svelte:component this={view($page.url)} data={$page.data} />
       {:else}
-        <pre>{JSON.stringify($page, null, 2)}</pre>
         <ul class="search-results">
           {#each categories as item}
             <li>
