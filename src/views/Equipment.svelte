@@ -76,8 +76,16 @@
   </div>
 </dl>
 
-<p class="description">{@html data.desc.join('<br>')}</p>
+<div class="description">
+  {#each data.desc as desc}
+    <p>{desc}</p>
+  {/each}
+</div>
 
 {#if data.special}
-  <p class="description">{@html data.special.join('<br>')}</p>
+  <p class="description">
+    {#each data.special as special}
+      <p>{special}</p>
+    {/each}
+  </p>
 {/if}

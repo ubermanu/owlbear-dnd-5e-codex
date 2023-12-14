@@ -31,7 +31,7 @@ const router = [
     component: Skill,
   },
   {
-    match: /^\/api\/equipments\/.*/,
+    match: /^\/api\/equipment\/.*/,
     component: Equipment,
   },
   {
