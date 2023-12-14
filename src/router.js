@@ -10,6 +10,7 @@ import EquipmentCategory from './views/EquipmentCategory.svelte'
 import Feat from './views/Feat.svelte'
 import Feature from './views/Feature.svelte'
 import Language from './views/Language.svelte'
+import Proficiency from './views/Proficiency.svelte'
 import Skill from './views/Skill.svelte'
 import Spell from './views/Spell.svelte'
 import WeaponProperty from './views/WeaponProperty.svelte'
@@ -58,6 +59,10 @@ const router = [
   {
     match: /^\/api\/languages\/.*/,
     component: Language,
+  },
+  {
+    match: /^\/api\/proficiencies\/.*/,
+    component: Proficiency,
   },
   {
     match: /^\/api\/spells\/.*/,

@@ -127,3 +127,13 @@ export interface Equipment {
   }
   tool_category?: string
 }
+
+export interface Proficiency {
+  index: string
+  type: string
+  name: string
+  classes: Resource[]
+  races: Resource[]
+  reference: Resource
+  url: string
+}
