@@ -10,6 +10,7 @@ import EquipmentCategory from './views/EquipmentCategory.svelte'
 import Feat from './views/Feat.svelte'
 import Feature from './views/Feature.svelte'
 import Language from './views/Language.svelte'
+import MagicItem from './views/MagicItem.svelte'
 import Monster from './views/Monster.svelte'
 import Proficiency from './views/Proficiency.svelte'
 import Skill from './views/Skill.svelte'
@@ -60,6 +61,10 @@ const router = [
   {
     match: /^\/api\/languages\/.*/,
     component: Language,
+  },
+  {
+    match: /^\/api\/magic-items\/.*/,
+    component: MagicItem,
   },
   {
     match: /^\/api\/monsters\/.*/,

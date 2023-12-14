@@ -97,3 +97,22 @@ button.tag:hover {
   outline: 2px solid #bb99ff;
   outline-offset: 0.25rem;
 }
+
+.description table {
+  margin-bottom: 1em;
+  border: 1px solid #292d3c;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #232632;
+  font-size: 0.9em;
+}
+
+.description th {
+  font-weight: 600;
+}
+
+.description th,
+.description td {
+  border: 2px solid #292d3c;
+  padding: 0.25em 0.5em;
+}

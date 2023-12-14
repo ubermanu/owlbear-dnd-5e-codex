@@ -20,6 +20,7 @@
   "dependencies": {
     "case": "^1.6.3",
     "fracty": "^1.0.11",
+    "marked": "^11.1.0",
     "radash": "^11.0.0",
     "the-new-css-reset": "^1.11.2"
   }
