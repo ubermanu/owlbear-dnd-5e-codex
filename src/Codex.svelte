@@ -9,6 +9,7 @@
   import Dragon from './icons/Dragon.svelte'
   import Star from './icons/Star.svelte'
   import Priest from './icons/Priest.svelte'
+  import Skill from './views/Skill.svelte'
 
   const categories = [
     { name: 'Spells', icon: Wand, url: '/api/spells' },
@@ -86,6 +87,8 @@
         <Spell data={$page.data} />
       {:else if $page.url.startsWith('/api/classes/')}
         <Class data={$page.data} />
+      {:else if $page.url.startsWith('/api/skills/')}
+        <Skill data={$page.data} />
       {:else}
         <pre>{JSON.stringify($page, null, 2)}</pre>
       {/if}

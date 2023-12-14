@@ -82,3 +82,15 @@ export interface Class {
   subclasses: Resource[]
   url: string
 }
+
+export interface Skill {
+  index: string
+  name: string
+  desc: string[]
+  ability_score: {
+    index: string
+    name: string
+    url: string
+  }
+  url: string
+}
