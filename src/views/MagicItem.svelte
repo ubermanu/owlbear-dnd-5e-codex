@@ -24,6 +24,6 @@
 
 {#if data.desc}
   <div class="description">
-    {@html marked(data.desc.join('\n'))}
+    {@html marked(data.desc.join('\n\n').replace(/\|\n\n\|/g, '|\n|'))}
   </div>
 {/if}
