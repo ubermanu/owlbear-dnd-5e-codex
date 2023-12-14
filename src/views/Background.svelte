@@ -1,5 +1,5 @@
 <script>
-  import { goto } from '../lib/navigation.js'
+  import Link from '../components/Link.svelte'
 
   // TODO: Implement the rest of the fields
   export let data
@@ -10,21 +10,21 @@
 <h3>Starting Proficiencies</h3>
 <div class="tags">
   {#each data.starting_proficiencies as proficiency}
-    <button class="tag" on:click={() => goto(proficiency.url)}>
+    <Link class="tag" url={proficiency.url}>
       {proficiency.name}
-    </button>
+    </Link>
   {/each}
 </div>
 
 <h3>Starting Equipment</h3>
 <div class="tags">
   {#each data.starting_equipment as { equipment, quantity }}
-    <button class="tag" on:click={() => goto(equipment.url)}>
+    <Link class="tag" url={equipment.url}>
       {equipment.name}
       {#if quantity > 1}
         <span>({quantity})</span>
       {/if}
-    </button>
+    </Link>
   {/each}
 </div>
 

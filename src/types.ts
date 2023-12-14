@@ -4,6 +4,15 @@ interface Resource {
   url: string
 }
 
+export interface AbilityScore {
+  index: string
+  name: string
+  full_name: string
+  desc: string[]
+  skills: Resource[]
+  url: string
+}
+
 export interface Spell {
   index: string
   name: string

@@ -1,10 +1,11 @@
 <script>
-  import { goto } from '../lib/navigation.js'
+  import Link from '../components/Link.svelte'
 
+  /** @type {import('../types.js').AbilityScore} */
   export let data
 </script>
 
-<h2 class="title">{data.name}</h2>
+<h2 class="title">{data.full_name}</h2>
 
 <div class="description">
   {#each data.desc as desc}
@@ -12,21 +13,8 @@
   {/each}
 </div>
 
-<ul class="skills">
+<div class="skills">
   {#each data.skills as skill}
-    <li>
-      <button class="tag" on:click={() => goto(skill.url)}>
-        {skill.name}
-      </button>
-    </li>
+    <Link href={skill.url} class="tag">{skill.name}</Link>
   {/each}
-</ul>
-
-<style>
-  .skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75em;
-    margin-top: 1.25em;
-  }
-</style>
+</div>

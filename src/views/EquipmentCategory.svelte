@@ -1,5 +1,5 @@
 <script>
-  import { goto } from '../lib/navigation.js'
+  import Link from '../components/Link.svelte'
 
   export let data
 </script>
@@ -8,8 +8,8 @@
 
 <div class="equipments">
   {#each data.equipment as equipment}
-    <button class="tag" on:click={() => goto(equipment.url)}>
+    <Link class="tag" url={equipment.url}>
       {equipment.name}
-    </button>
+    </Link>
   {/each}
 </div>

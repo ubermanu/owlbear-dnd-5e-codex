@@ -1,5 +1,5 @@
 <script>
-  import { goto } from '../lib/navigation.js'
+  import Link from '../components/Link.svelte'
 
   /** @type {import('../types.js').Spell} */
   export let data
@@ -77,7 +77,7 @@
   <p class="available">
     <span>Available for</span>
     {#each data.classes as cls}
-      <button class="tag" on:click={() => goto(cls.url)}>{cls.name}</button>
+      <Link class="tag" url={cls.url}>{cls.name}</Link>
     {/each}
   </p>
 {/if}
