@@ -77,34 +77,6 @@
 {/if}
 
 <style>
-  .title {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    color: #bb99ff;
-    font-size: 2rem;
-  }
-
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-  }
-
-  .stats dt {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.8em;
-  }
-
-  .stats dd {
-    margin-bottom: 0.5em;
-    margin-left: 0;
-    font-size: 1.1rem;
-  }
-
-  .description {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-  }
-
   .material {
     color: rgba(255, 255, 255, 0.7);
     font-style: italic;
@@ -113,15 +85,5 @@
 
   .available {
     font-size: 0.8em;
-  }
-
-  .tag {
-    display: inline-block;
-    margin-bottom: 0.5em;
-    margin-left: 0.5em;
-    border-radius: 0.2em;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.2em 0.5em;
-    color: #fff;
   }
 </style>

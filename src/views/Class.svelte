@@ -41,29 +41,8 @@
 </div>
 
 <style>
-  .title {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    color: #bb99ff;
-    font-size: 2rem;
-  }
-
   h3 {
     margin-bottom: 0.5em;
     font-size: 1.1rem;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-  }
-
-  .tag {
-    border-radius: 0.2em;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.2em 0.5em;
-    color: #fff;
-    font-size: 0.8em;
   }
 </style>

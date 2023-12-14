@@ -81,33 +81,3 @@
 {#if data.special}
   <p class="description">{@html data.special.join('<br>')}</p>
 {/if}
-
-<style>
-  .title {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    color: #bb99ff;
-    font-size: 2rem;
-  }
-
-  .description {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-  }
-
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-  }
-
-  .stats dt {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.8em;
-  }
-
-  .stats dd {
-    margin-bottom: 0.5em;
-    margin-left: 0;
-    font-size: 1.1rem;
-  }
-</style>
