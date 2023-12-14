@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  case:
+    specifier: ^1.6.3
+    version: 1.6.3
+  fracty:
+    specifier: ^1.0.11
+    version: 1.0.11
   radash:
     specifier: ^11.0.0
     version: 11.0.0
@@ -542,6 +548,11 @@ packages:
       run-applescript: 5.0.0
     dev: true
 
+  /case@1.6.3:
+    resolution: {integrity: sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==}
+    engines: {node: '>= 0.8.0'}
+    dev: false
+
   /character-entities@2.0.2:
     resolution: {integrity: sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ==}
     dev: true
@@ -750,6 +761,10 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
     dev: true
+
+  /fracty@1.0.11:
+    resolution: {integrity: sha512-ErR63lQoYO4xMGkJDW6byvE92l+h00yVnKkW4CjHevKBxVBhnd9C3xaDJwkaMmmr6Y/LlqGk1Gu9wf9wk1FcCg==}
+    dev: false
 
   /fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
