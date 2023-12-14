@@ -140,7 +140,7 @@
     margin-bottom: 1rem;
     outline: none;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     background: none;
     padding: 0.5rem;
     color: #fff;
