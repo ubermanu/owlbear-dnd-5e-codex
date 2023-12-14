@@ -151,28 +151,28 @@
     overflow-y: auto;
   }
 
-  .search-results {
-    margin: 0;
-    padding: 0.2rem 0.5rem 0.2rem 0.2rem;
-    list-style: none;
-  }
-
-  .search-results::-webkit-scrollbar {
+  .scroll-area::-webkit-scrollbar {
     width: 0.5rem;
   }
 
-  .search-results::-webkit-scrollbar-track {
+  .scroll-area::-webkit-scrollbar-track {
     border-radius: 0.2rem;
     background: #3b3d4b;
   }
 
-  .search-results::-webkit-scrollbar-thumb {
+  .scroll-area::-webkit-scrollbar-thumb {
     border-radius: 0.2rem;
     background: #6a6c77;
   }
 
-  .search-results::-webkit-scrollbar-thumb:hover {
+  .scroll-area::-webkit-scrollbar-thumb:hover {
     background: #bb99ff;
+  }
+
+  .search-results {
+    margin: 0;
+    padding: 0.2rem 0.5rem 0.2rem 0.2rem;
+    list-style: none;
   }
 
   .search-item {
