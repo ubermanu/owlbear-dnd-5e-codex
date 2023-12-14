@@ -4,14 +4,16 @@
   import { fetchDnD } from './lib/api.js'
   import Spell from './views/Spell.svelte'
   import Class from './views/Class.svelte'
+  import Armor from './icons/Armor.svelte'
+  import Wand from './icons/Wand.svelte'
+  import Dragon from './icons/Dragon.svelte'
 
   const categories = [
-    { name: 'Spells', emoji: '🔮', url: '/api/spells' },
-    { name: 'Skills', emoji: '💪', url: '/api/skills' },
-    { name: 'Equipment', emoji: '⚔️', url: '/api/equipment' },
-    { name: 'Classes', emoji: '🙋', url: '/api/classes' },
-    { name: 'Features', emoji: '🎯', url: '/api/features' },
-    { name: 'Monsters', emoji: '🐉', url: '/api/monsters' },
+    { name: 'Spells', icon: Wand, url: '/api/spells' },
+    { name: 'Skills', icon: null, url: '/api/skills' },
+    { name: 'Equipment', icon: Armor, url: '/api/equipment' },
+    { name: 'Classes', icon: null, url: '/api/classes' },
+    { name: 'Monsters', icon: Dragon, url: '/api/monsters' },
   ]
 
   // TODO: Add types
@@ -47,9 +49,13 @@
       <button
         class="category"
         on:click={() => goto(cat.url)}
-        class:active={$page.url === cat.url}
+        class:active={$page.url.startsWith(cat.url)}
+        title={cat.name}
       >
-        {cat.emoji}
+        {#if cat.icon}
+          <svelte:component this={cat.icon} />
+        {/if}
+        <span>{cat.name}</span>
       </button>
     {/each}
   </div>
@@ -106,21 +112,28 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-bottom: 1rem;
   }
 
   .category {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     cursor: pointer;
     outline: none;
     border: none;
     background: none;
     padding: 0;
-    font-size: 1rem;
+    font-size: 0.9em;
+  }
+
+  .category :global(svg) {
+    width: 1.3rem;
   }
 
   .category.active {
-    filter: drop-shadow(0 0 0.2rem #fff);
+    color: #bb99ff;
   }
 
   .input {
