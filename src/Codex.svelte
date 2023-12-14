@@ -2,6 +2,7 @@
   import { debounce } from 'radash'
   import { writable } from 'svelte/store'
   import { fetchDnD } from './lib/api.js'
+  import Spell from './views/Spell.svelte'
 
   const categories = [
     { name: 'Spells', emoji: '🔮', url: '/api/spells' },
@@ -59,19 +60,23 @@
     on:input={debounce({ delay: 200 }, (e) => search(e.target.value))}
   />
   <div class="content">
-    {#if 'results' in $page.data && Array.isArray($page.data.results)}
-      <ul class="search-results">
-        {#each $page.data.results as item}
-          <li>
-            <button class="search-item" on:click={() => goto(item.url)}>
-              {item.name}
-            </button>
-          </li>
-        {/each}
-      </ul>
-    {:else}
-      <pre style="white-space: pre-wrap;">{JSON.stringify($page, null, 2)}</pre>
-    {/if}
+    <div class="scroll-area">
+      {#if 'results' in $page.data && Array.isArray($page.data.results)}
+        <ul class="search-results">
+          {#each $page.data.results as item}
+            <li>
+              <button class="search-item" on:click={() => goto(item.url)}>
+                {item.name}
+              </button>
+            </li>
+          {/each}
+        </ul>
+      {:else if $page.url.startsWith('/api/spells/')}
+        <Spell data={$page.data} />
+      {:else}
+        <pre>{JSON.stringify($page, null, 2)}</pre>
+      {/if}
+    </div>
   </div>
   <footer class="footer">
     {#if 'count' in $page.data && +$page.data.count > 0}
@@ -141,11 +146,14 @@
     min-height: 0;
   }
 
+  .scroll-area {
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
   .search-results {
     margin: 0;
     padding: 0.2rem 0.5rem 0.2rem 0.2rem;
-    max-height: 100%;
-    overflow-y: auto;
     list-style: none;
   }
 
