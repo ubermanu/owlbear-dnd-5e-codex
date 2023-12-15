@@ -45,7 +45,9 @@
   </div>
   <footer class="footer">
     <Breadcrumbs />
-    <slot name="footer" />
+    {#if 'count' in $page.data}
+      <span>{`${$page.data.count} results`}</span>
+    {/if}
   </footer>
 </main>
 
