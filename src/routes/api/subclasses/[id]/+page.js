@@ -1,14 +1,14 @@
+import { API_URL } from '$lib/api.js'
+
 export const load = async ({ fetch, parent }) => {
   const data = await parent()
 
+  const res = await fetch(API_URL.concat(data.subclass_levels))
+  const subclass_levels = await res.json()
+
   return {
     streamed: {
-      subclass_levels: async () => {
-        const res = await fetch(
-          `https://www.dnd5eapi.co${data.subclass_levels}`
-        )
-        return await res.json()
-      },
+      subclass_levels,
     },
   }
 }
