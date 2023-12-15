@@ -194,3 +194,7 @@ button.tag:hover {
 .levels td:first-child {
   text-align: center;
 }
+
+.levels tbody tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}

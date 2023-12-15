@@ -15,6 +15,12 @@
     <dt>Hit Dice</dt>
     <dd>{data.hit_die}</dd>
   </div>
+  <div class="stat-item">
+    <dt>Saving Throws</dt>
+    <dd>
+      {data.saving_throws.map((saving_throw) => saving_throw.name).join(', ')}
+    </dd>
+  </div>
 </dl>
 
 {#await levels_promise then levels}
@@ -24,31 +30,64 @@
       <thead>
         <tr>
           <th>Level</th>
+          <th>Prof. Bonus</th>
           <th>Features</th>
         </tr>
       </thead>
       <tbody>
-        {#each levels as { level, features }}
+        {#each levels as { level, prof_bonus, features }}
           <tr>
-            <td>{level}</td>
+            <td class="nb">{level}</td>
+            <td class="nb">+{prof_bonus}</td>
             <td>
-              {#each features as feature}
-                <Link class="tag" url={feature.url}>{feature.name}</Link>
-              {/each}
+              {#if features.length > 0}
+                {#each features as feature}
+                  <Link class="tag" url={feature.url}>{feature.name}</Link>
+                {/each}
+              {:else}
+                —
+              {/if}
             </td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+
+    <h3>Spell casting</h3>
+    <table class="levels">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th colspan="9">~ Spell Slots per Spell Level ~</th>
+        </tr>
+        <tr>
+          <th>Level</th>
+          <th>Cantrips Known</th>
+          {#each Array.from({ length: 9 }) as _, i}
+            <th>Lv {i + 1}</th>
+          {/each}
+        </tr>
+      </thead>
+      <tbody>
+        {#each levels as { level, spellcasting }}
+          <tr>
+            <td class="nb">{level}</td>
+            {#if spellcasting}
+              <td class="nb">{spellcasting.cantrips_known}</td>
+              {#each Array.from({ length: 9 }) as _, i}
+                <td class="nb">
+                  {spellcasting[`spell_slots_level_${i + 1}`] || ''}
+                </td>
+              {/each}
+            {/if}
           </tr>
         {/each}
       </tbody>
     </table>
   {/if}
 {/await}
-
-<h3>Saving Throws</h3>
-<div class="tags">
-  {#each data.saving_throws as saving_throw}
-    <Link url={saving_throw.url} class="tag">{saving_throw.name}</Link>
-  {/each}
-</div>
 
 <h3>Proficiencies</h3>
 <div class="tags">
@@ -82,5 +121,9 @@
   h3 {
     margin-bottom: 0.5em;
     font-size: 1.1rem;
+  }
+
+  .nb {
+    text-align: center;
   }
 </style>
