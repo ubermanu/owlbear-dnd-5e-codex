@@ -1,5 +1,5 @@
 <script>
-  /** @type {import('$lib/types.js').Class} */
+  /** @type {import('$lib/types.js').Class & { streamed: any }} */
   export let data
 </script>
 

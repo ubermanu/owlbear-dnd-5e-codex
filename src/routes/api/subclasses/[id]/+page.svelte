@@ -1,10 +1,8 @@
 <script>
   import { md } from '$lib/format.js'
-  import { fetchDnD } from '../lib/api.js'
 
+  /** @type {any & { streamed: any }} */
   export let data
-
-  const levels_promise = fetchDnD(data.subclass_levels)
 </script>
 
 <h2 class="title">{data.name}</h2>
@@ -22,7 +20,7 @@
   </div>
 </dl>
 
-{#await levels_promise then levels}
+{#await data.streamed.subclass_levels then levels}
   {#if levels.length > 0}
     <h3>Levels</h3>
     <table class="levels">
