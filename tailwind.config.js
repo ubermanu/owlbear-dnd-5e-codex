@@ -1,4 +1,5 @@
 import typography from '@tailwindcss/typography'
+import scrollbar from 'tailwind-scrollbar'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -19,8 +20,11 @@ export default {
         muted: {
           DEFAULT: 'var(--text-color-muted)',
         },
+        disabled: {
+          DEFAULT: 'var(--text-color-disabled)',
+        },
       },
     },
   },
-  plugins: [typography],
+  plugins: [typography, scrollbar({ nocompatible: true })],
 }

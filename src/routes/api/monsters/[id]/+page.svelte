@@ -10,14 +10,19 @@
 </script>
 
 {#if data.image}
-  <div class="image">
-    <img src={API_URL.concat(data.image)} width="200" alt="" />
+  <div class="float-right m-4 mt-0">
+    <img
+      class="block rounded-sm shadow"
+      src={API_URL.concat(data.image)}
+      width="200"
+      alt=""
+    />
   </div>
 {/if}
 
 <h2 class="title">{data.name}</h2>
 
-<p class="subtitle">
+<p class="text-disabled mb-4 italic">
   {data.size}
   {data.type}
   {#if data.subtype}
@@ -29,7 +34,7 @@
 <dl class="stats">
   <div class="stat-item">
     <dt>Armor Class</dt>
-    <dd>{data.armor_class[0].value}</dd>
+    <dd>{data.armor_class[0]?.value}</dd>
   </div>
 
   <div class="stat-item">
@@ -61,7 +66,7 @@
 </dl>
 
 <h3 class="subtitle">Abilities</h3>
-<table class="abilities">
+<table class="abilities rounded">
   <thead>
     <tr>
       <th>STR</th>
@@ -198,44 +203,20 @@
   </div>
 {/if}
 
-<style>
-  .image {
-    float: right;
-    margin: 1rem;
-  }
-
-  .image img {
-    display: block;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-    border-radius: 0.25rem;
-  }
-
-  .subtitle {
-    font-style: italic;
-  }
-
+<style lang="postcss">
   .abilities {
-    border-radius: 0.5rem;
-    border-collapse: collapse;
-    border-spacing: 0;
-    background: #232632;
-    width: fit-content;
+    background: var(--background-color);
   }
 
   .abilities th {
-    padding: 0.2rem 1rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.8em;
-    text-align: center;
+    @apply text-disabled px-3 py-1 text-center text-sm font-normal uppercase;
   }
 
   .abilities td {
-    padding: 0.2rem 1rem;
-    text-align: center;
+    @apply px-3 py-1 text-center;
   }
 
   h4 {
-    margin-bottom: 0.2em;
-    color: #bb99ff;
+    @apply mb-1 mt-2 text-lg text-secondary;
   }
 </style>

@@ -9,14 +9,16 @@
 </script>
 
 <ThemeProvider>
-  <main>
+  <main class="flex h-screen flex-col p-4">
     <SearchBar />
-    <div class="content">
-      <div class="scroll-area">
+    <div class="min-h-0 flex-grow">
+      <div
+        class="scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-disabled scrollbar-track-gray-200 max-h-full overflow-y-auto"
+      >
         <slot />
       </div>
     </div>
-    <footer class="footer">
+    <footer class="mt-2 flex items-center justify-between text-sm">
       <Breadcrumbs />
       {#if data.count}
         <span>{`${data.count} results`}</span>
@@ -24,48 +26,3 @@
     </footer>
   </main>
 </ThemeProvider>
-
-<style>
-  main {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 1rem;
-    height: 100vh;
-    color: var(--text-color);
-  }
-
-  .content {
-    flex-grow: 1;
-    min-height: 0;
-  }
-
-  .scroll-area {
-    max-height: 100%;
-    overflow-y: auto;
-  }
-
-  .scroll-area::-webkit-scrollbar {
-    width: 0.5rem;
-    height: 0.5rem;
-  }
-
-  .scroll-area::-webkit-scrollbar-track {
-    border-radius: 0.2rem;
-    background: var(--text-color-muted);
-  }
-
-  .scroll-area::-webkit-scrollbar-thumb {
-    border-radius: 0.2rem;
-    background: var(--text-color-disabled);
-  }
-
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 1rem;
-    color: var(--text-color-disabled);
-    font-size: 0.8rem;
-  }
-</style>

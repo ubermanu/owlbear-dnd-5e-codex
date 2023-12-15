@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+main {
+  color: var(--text-color);
+}
+
 .title {
   @apply mb-4 text-4xl text-primary;
 }
@@ -33,7 +37,7 @@
 }
 
 .tag {
-  @apply mb-2 mr-2 inline-block rounded-sm px-2 py-1 text-sm last:mr-0;
+  @apply bg-disabled mb-2 mr-2 inline-block rounded-sm px-2 py-1 text-sm last:mr-0;
   color: var(--secondary-text-color);
 }
 
