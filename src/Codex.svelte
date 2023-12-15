@@ -8,14 +8,21 @@
 
   /** @param {string} query */
   async function search(query) {
-    if (!query) {
-      await goto('')
+    const endpoint = $page.url.pathname.split('/').slice(0, 3).join('/')
+
+    if (endpoint === '/') {
       return
     }
 
-    const endpoint = $page.url.pathname.split('/').slice(0, 3).join('/')
+    if (!query) {
+      await goto(endpoint)
+      return
+    }
+
     await goto(`${endpoint}?name=${query}`)
   }
+
+  $: console.log($page.url.pathname)
 
   // TODO: Update input placeholder (search by name, etc.)
 </script>
@@ -26,7 +33,9 @@
     autocomplete="off"
     type="text"
     placeholder="Search..."
-    on:input={debounce({ delay: 200 }, (e) => search(e.target.value))}
+    on:input={debounce({ delay: 200 }, async (e) => {
+      await search(e.target.value)
+    })}
   />
   <div class="content">
     <div class="scroll-area">

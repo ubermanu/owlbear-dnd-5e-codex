@@ -8,7 +8,9 @@ import { page } from './stores.js'
  * @param {string} url
  */
 export async function goto(url) {
-  if (url === get(page).url.pathname) {
+  const $page = get(page)
+
+  if (url === $page.url.pathname + $page.url.search) {
     return
   }
 
