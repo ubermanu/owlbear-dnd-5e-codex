@@ -1,9 +1,9 @@
 <script>
-  import { categories } from '$lib/api.js'
+  export let data
 </script>
 
 <ul class="search-results">
-  {#each categories as item}
+  {#each data.results as item}
     <li>
       <a class="search-item" href={item.url}>
         {item.name}

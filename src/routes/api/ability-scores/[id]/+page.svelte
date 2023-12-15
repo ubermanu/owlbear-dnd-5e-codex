@@ -1,0 +1,18 @@
+<script>
+  import { md } from '$lib/format.js'
+
+  /** @type {import('./$types').AbilityScore} */
+  export let data
+</script>
+
+<h2 class="title">{data.full_name}</h2>
+
+<div class="description">
+  {@html md(data.desc)}
+</div>
+
+<div class="skills">
+  {#each data.skills as skill}
+    <a href={skill.url} class="tag">{skill.name}</a>
+  {/each}
+</div>

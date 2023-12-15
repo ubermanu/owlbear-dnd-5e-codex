@@ -1,6 +1,5 @@
 <script>
-  import { page } from '../lib/stores.js'
-  import Link from './Link.svelte'
+  import { page } from '$app/stores'
 
   // Generates the breadcrumbs from the current page URL
   $: breadcrumbs = $page.url.pathname
@@ -18,13 +17,13 @@
 
 {#if breadcrumbs.length > 0}
   <span class="breadcrumbs">
-    <Link class="item" url="">codex</Link>
+    <a class="item" href="/">codex</a>
     {#each breadcrumbs as crumb}
       <span class="separator">/</span>
       {#if crumb.url === $page.url.pathname}
         <span class="item current">{crumb.name}</span>
       {:else}
-        <Link class="item" url={crumb.url}>{crumb.name}</Link>
+        <a class="item" href={crumb.url}>{crumb.name}</a>
       {/if}
     {/each}
   </span>
