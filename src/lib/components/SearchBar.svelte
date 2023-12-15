@@ -19,35 +19,17 @@
     await goto(`${endpoint}?name=${query}`, { keepFocus: true })
   }
 
+  const onInput = debounce({ delay: 200 }, async (e) => {
+    await search(e.target.value)
+  })
+
   // TODO: Update input placeholder (search by name, etc.)
 </script>
 
 <input
-  class="input"
+  class="mb-1 border-b border-disabled bg-transparent p-1 text-base placeholder-disabled focus:border-primary focus:outline-none"
   autocomplete="off"
   type="text"
   placeholder="Search..."
-  on:input={debounce({ delay: 200 }, async (e) => {
-    await search(e.target.value)
-  })}
+  on:input={onInput}
 />
-
-<style>
-  .input {
-    margin-bottom: 1rem;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid var(--text-color-disabled);
-    background: none;
-    padding: 0.5rem;
-    font-size: 1rem;
-  }
-
-  .input::placeholder {
-    color: var(--text-color-disabled);
-  }
-
-  .input:focus {
-    border-bottom: 1px solid var(--primary-color);
-  }
-</style>

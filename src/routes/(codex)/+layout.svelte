@@ -12,7 +12,7 @@
   <SearchBar />
   <div class="min-h-0 flex-grow">
     <div
-      class="scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-disabled scrollbar-track-gray-200 max-h-full overflow-y-auto"
+      class="max-h-full overflow-y-auto scrollbar-thin scrollbar-track-muted scrollbar-thumb-disabled scrollbar-track-rounded scrollbar-thumb-rounded"
     >
       <slot />
     </div>
