@@ -1,5 +1,5 @@
 <script>
-  /** @type {import('./$types').Proficiency} */
+  /** @type {import('$lib/types.js').Proficiency} */
   export let data
 </script>
 

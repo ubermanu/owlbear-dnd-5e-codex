@@ -17,7 +17,7 @@
 
 {#if breadcrumbs.length > 0}
   <span class="breadcrumbs">
-    <a class="item" href="/">codex</a>
+    <a class="item" href="/static">codex</a>
     {#each breadcrumbs as crumb}
       <span class="separator">/</span>
       {#if crumb.url === $page.url.pathname}

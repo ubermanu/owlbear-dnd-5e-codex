@@ -1,5 +1,5 @@
 <script>
-  /** @type {import('./$types').Class} */
+  /** @type {import('$lib/types.js').Class} */
   export let data
 </script>
 

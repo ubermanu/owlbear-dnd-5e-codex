@@ -1,7 +1,7 @@
 <script>
   import { md } from '$lib/format.js'
 
-  /** @type {import('./$types').Spell} */
+  /** @type {import('$lib/types.js').Spell} */
   export let data
 </script>
 

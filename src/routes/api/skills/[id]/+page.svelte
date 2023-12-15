@@ -1,7 +1,7 @@
 <script>
   import { md } from '$lib/format.js'
 
-  /** @type {import('./$types').Skill} */
+  /** @type {import('$lib/types.js').Skill} */
   export let data
 </script>
 

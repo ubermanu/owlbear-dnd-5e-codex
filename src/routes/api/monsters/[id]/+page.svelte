@@ -5,7 +5,7 @@
   import { API_URL } from '$lib/api.js'
   import { md } from '$lib/format.js'
 
-  /** @type {import('./$types').Monster} */
+  /** @type {import('$lib/types.js').Monster} */
   export let data
 </script>
 

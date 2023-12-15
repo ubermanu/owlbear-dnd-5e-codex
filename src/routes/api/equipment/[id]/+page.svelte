@@ -1,7 +1,7 @@
 <script>
   import { md } from '$lib/format.js'
 
-  /** @type {import('./$types').Equipment} */
+  /** @type {import('$lib/types.js').Equipment} */
   export let data
 </script>
 

@@ -5,7 +5,7 @@
   import { page } from '$app/stores'
   import { goto } from '$app/navigation'
   import { debounce } from 'radash'
-  import Breadcrumbs from '../components/Breadcrumbs.svelte'
+  import Breadcrumbs from '$lib/components/Breadcrumbs.svelte'
 
   /** @param {string} query */
   async function search(query) {
