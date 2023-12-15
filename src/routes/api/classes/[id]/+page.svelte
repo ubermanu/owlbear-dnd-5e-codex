@@ -20,7 +20,7 @@
 
 {#await data.streamed.class_levels then levels}
   {#if levels.length > 0}
-    <h3>Levels</h3>
+    <h3 class="subtitle">Levels</h3>
     <table class="levels">
       <thead>
         <tr>
@@ -49,7 +49,7 @@
     </table>
 
     {#if levels[0].spellcasting}
-      <h3>Spell casting</h3>
+      <h3 class="subtitle">Spell casting</h3>
       <table class="levels">
         <thead>
           <tr>
@@ -86,14 +86,14 @@
   {/if}
 {/await}
 
-<h3>Proficiencies</h3>
+<h3 class="subtitle">Proficiencies</h3>
 <div class="tags">
   {#each data.proficiencies as proficiency}
     <a href={proficiency.url} class="tag">{proficiency.name}</a>
   {/each}
 </div>
 
-<h3>Starting Equipment</h3>
+<h3 class="subtitle">Starting Equipment</h3>
 <div class="tags">
   {#each data.starting_equipment as starting_equipment}
     <a href={starting_equipment.equipment.url} class="tag">
@@ -105,7 +105,7 @@
   {/each}
 </div>
 
-<h3>Starting Equipment Options</h3>
+<h3 class="subtitle">Starting Equipment Options</h3>
 <div class="tags">
   {#each data.starting_equipment_options as starting_equipment_option}
     <span class="tag">

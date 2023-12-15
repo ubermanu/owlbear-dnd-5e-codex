@@ -22,7 +22,7 @@
 
 {#await data.streamed.subclass_levels then levels}
   {#if levels.length > 0}
-    <h3>Levels</h3>
+    <h3 class="subtitle">Levels</h3>
     <table class="levels">
       <thead>
         <tr>

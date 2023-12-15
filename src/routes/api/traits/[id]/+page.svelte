@@ -21,21 +21,21 @@
 <h2 class="title">{data.name}</h2>
 
 {#if data.proficiencies?.length > 0}
-  <h3>Proficiencies</h3>
+  <h3 class="subtitle">Proficiencies</h3>
   {#each data.proficiencies as proficiency}
     <a class="tag" href={proficiency.url}>{proficiency.name}</a>
   {/each}
 {/if}
 
 {#if data.desc}
-  <h3>Description</h3>
+  <h3 class="subtitle">Description</h3>
   <div class="description">
     {@html md(data.desc)}
   </div>
 {/if}
 
 {#if data.proficiency_choices && data.proficiency_choices.from.option_set_type === 'options_array'}
-  <h3>Proficiency Choices</h3>
+  <h3 class="subtitle">Proficiency Choices</h3>
 
   {#each data.proficiency_choices.from.options as { option_type, item }}
     {#if option_type === 'reference'}

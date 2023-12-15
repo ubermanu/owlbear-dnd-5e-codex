@@ -9,6 +9,14 @@ export default {
       fontFamily: {
         sans: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
       },
+      colors: {
+        primary: {
+          DEFAULT: 'var(--color-primary)',
+        },
+        secondary: {
+          DEFAULT: 'var(--color-secondary)',
+        },
+      },
     },
   },
   plugins: [typography],

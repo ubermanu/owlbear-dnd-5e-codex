@@ -5,7 +5,7 @@
 
 <h2 class="title">{data.name}</h2>
 
-<h3>Starting Proficiencies</h3>
+<h3 class="subtitle">Starting Proficiencies</h3>
 
 <div class="tags">
   {#each data.starting_proficiencies as proficiency}
@@ -13,7 +13,7 @@
   {/each}
 </div>
 
-<h3>Starting Equipment</h3>
+<h3 class="subtitle">Starting Equipment</h3>
 
 <div class="tags">
   {#each data.starting_equipment as { equipment, quantity }}

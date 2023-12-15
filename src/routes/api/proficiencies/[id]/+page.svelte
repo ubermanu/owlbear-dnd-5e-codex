@@ -22,7 +22,7 @@
 </dl>
 
 {#if data.classes?.length > 0}
-  <h3>Classes</h3>
+  <h3 class="subtitle">Classes</h3>
   <div class="classes">
     {#each data.classes as cls}
       <a class="tag" href={cls.url}>{cls.name}</a>
@@ -31,7 +31,7 @@
 {/if}
 
 {#if data.races?.length > 0}
-  <h3>Races</h3>
+  <h3 class="subtitle">Races</h3>
   <div class="races">
     {#each data.races as race}
       <a class="tag" href={race.url}>{race.name}</a>

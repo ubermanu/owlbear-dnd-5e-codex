@@ -11,6 +11,7 @@
   {@html md(data.desc)}
 </div>
 
+<h3 class="subtitle">Skills</h3>
 <div class="skills">
   {#each data.skills as skill}
     <a href={skill.url} class="tag">{skill.name}</a>

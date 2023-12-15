@@ -60,7 +60,7 @@
   {/if}
 </dl>
 
-<h3>Abilities</h3>
+<h3 class="subtitle">Abilities</h3>
 <table class="abilities">
   <thead>
     <tr>
@@ -85,7 +85,7 @@
 </table>
 
 {#if data.proficiencies?.length > 0}
-  <h3>Proficiencies</h3>
+  <h3 class="subtitle">Proficiencies</h3>
   <div class="proficiencies">
     {#each data.proficiencies as { proficiency, value }}
       <a class="tag" href={proficiency.url}>
@@ -99,7 +99,7 @@
 {/if}
 
 {#if data.senses}
-  <h3>Senses</h3>
+  <h3 class="subtitle">Senses</h3>
   <div class="senses">
     {#each Object.entries(data.senses) as [sense, value]}
       <span class="tag">
@@ -113,7 +113,7 @@
 {/if}
 
 {#if data.special_abilities?.length > 0}
-  <h3>Special Abilities</h3>
+  <h3 class="subtitle">Special Abilities</h3>
   <div class="special-abilities">
     {#each data.special_abilities as ability}
       <div class="special-ability">
@@ -125,7 +125,7 @@
 {/if}
 
 {#if data.actions?.length > 0}
-  <h3>Actions</h3>
+  <h3 class="subtitle">Actions</h3>
   <div class="actions">
     {#each data.actions as action}
       <div class="action">
@@ -137,7 +137,7 @@
 {/if}
 
 {#if data.legendary_actions?.length > 0}
-  <h3>Legendary Actions</h3>
+  <h3 class="subtitle">Legendary Actions</h3>
   <div class="legendary-actions">
     {#each data.legendary_actions as action}
       <div class="legendary-action">
@@ -149,7 +149,7 @@
 {/if}
 
 {#if data.damage_vulnerabilities?.length > 0}
-  <h3>Damage Vulnerabilities</h3>
+  <h3 class="subtitle">Damage Vulnerabilities</h3>
   {#each data.damage_vulnerabilities as damage}
     <a class="tag" href="/api/damage-types/{damage}">
       {Case.sentence(damage)}
@@ -158,7 +158,7 @@
 {/if}
 
 {#if data.damage_resistances?.length > 0}
-  <h3>Damage Resistances</h3>
+  <h3 class="subtitle">Damage Resistances</h3>
   {#each data.damage_resistances as damage}
     <a class="tag" href="/api/damage-types/{damage}">
       {Case.sentence(damage)}
@@ -167,7 +167,7 @@
 {/if}
 
 {#if data.damage_immunities?.length > 0}
-  <h3>Damage Immunities</h3>
+  <h3 class="subtitle">Damage Immunities</h3>
   {#each data.damage_immunities as damage}
     <a class="tag" href="/api/damage-types/{damage}">
       {Case.sentence(damage)}
@@ -176,7 +176,7 @@
 {/if}
 
 {#if data.condition_immunities?.length > 0}
-  <h3>Condition Immunities</h3>
+  <h3 class="subtitle">Condition Immunities</h3>
   {#each data.condition_immunities as condition}
     <a class="tag" href={condition.url}>
       {Case.sentence(condition.name)}
@@ -185,14 +185,14 @@
 {/if}
 
 {#if data.languages}
-  <h3>Languages</h3>
+  <h3 class="subtitle">Languages</h3>
   {#each data.languages.split(',') as language}
     <span class="tag">{Case.sentence(language.trim())}</span>
   {/each}
 {/if}
 
 {#if data.desc}
-  <h3>Description</h3>
+  <h3 class="subtitle">Description</h3>
   <div class="description">
     {@html md(data.desc)}
   </div>
