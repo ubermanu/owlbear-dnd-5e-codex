@@ -16,11 +16,11 @@
     }
 
     if (!query) {
-      await goto(endpoint)
+      await goto(endpoint, { keepFocus: true })
       return
     }
 
-    await goto(`${endpoint}?name=${query}`)
+    await goto(`${endpoint}?name=${query}`, { keepFocus: true })
   }
 
   $: console.log($page.url.pathname)
