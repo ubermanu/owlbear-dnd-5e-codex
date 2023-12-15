@@ -7,9 +7,7 @@ export const load = async () => {
     return
   }
 
-  const theme = await OBR.theme.getTheme()
-
   return {
-    theme,
+    OBR,
   }
 }

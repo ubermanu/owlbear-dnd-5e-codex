@@ -11,10 +11,13 @@ export default {
       },
       colors: {
         primary: {
-          DEFAULT: 'var(--color-primary)',
+          DEFAULT: 'var(--primary-color)',
         },
         secondary: {
-          DEFAULT: 'var(--color-secondary)',
+          DEFAULT: 'var(--secondary-color)',
+        },
+        muted: {
+          DEFAULT: 'var(--text-color-muted)',
         },
       },
     },

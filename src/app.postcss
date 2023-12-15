@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .title {
-  @apply text-4xl;
+  @apply mb-4 text-4xl text-primary;
 }
 
 .subtitle {
-  @apply text-2xl;
+  @apply mb-3 mt-5 text-2xl;
 }
 
 .description {
@@ -15,75 +15,45 @@
 }
 
 .search-results {
-  @apply p-1 pr-2;
+  @apply p-2 pr-3;
 }
 
 .search-item {
-  @apply mb-2 block w-full cursor-pointer rounded border-none bg-none p-2 text-left text-base outline-none duration-100 ease-out hover:bg-gray-100;
+  @apply hover:bg-muted mb-2 block w-full cursor-pointer rounded border-none bg-none p-2 text-left text-base outline-none duration-100 ease-out;
 }
 
 .stats {
-  display: grid;
+  @apply grid gap-2;
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-  margin-bottom: 0.75rem;
 }
 
 .stats dt {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.8em;
-}
-
-.stats dd {
-  margin-bottom: 0.5em;
-  margin-left: 0;
+  @apply text-sm;
+  color: var(--text-color-disabled);
 }
 
 .tag {
-  display: inline-block;
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
-  border-radius: 0.2em;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.2em 0.5em;
-  color: #fff;
-  font-size: 0.8rem;
-}
-
-.tag:last-child {
-  margin-right: 0;
-}
-
-button {
-  cursor: pointer;
-}
-
-button.tag:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  @apply mb-2 mr-2 inline-block rounded-sm px-2 py-1 text-sm last:mr-0;
+  color: var(--secondary-text-color);
 }
 
 *:focus-visible {
-  outline: 2px solid #bb99ff;
-  outline-offset: 0.25rem;
+  @apply outline-2 outline-offset-2 outline-primary;
 }
 
 .description table {
-  margin-bottom: 1em;
-  border: 1px solid #292d3c;
-  border-collapse: collapse;
-  border-spacing: 0;
-  background-color: #232632;
-  font-size: 0.9em;
+  @apply text-sm;
+  border: 1px solid var(--surface-color);
+  background: var(--background-color);
 }
 
 .description th {
-  font-weight: 600;
+  @apply font-semibold;
 }
 
 .description th,
 .description td {
-  border: 2px solid #292d3c;
-  padding: 0.25em 0.5em;
+  @apply border border-gray-700 px-2 py-1;
 }
 
 .levels {

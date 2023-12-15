@@ -38,11 +38,11 @@
   }
 
   .breadcrumbs .item:hover {
-    color: #bb99ff;
+    color: var(--primary-color);
   }
 
   .breadcrumbs .current {
-    color: #bb99ff;
+    color: var(--primary-color);
     font-weight: 500;
   }
 </style>

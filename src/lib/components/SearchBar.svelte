@@ -18,6 +18,8 @@
 
     await goto(`${endpoint}?name=${query}`, { keepFocus: true })
   }
+
+  // TODO: Update input placeholder (search by name, etc.)
 </script>
 
 <input
@@ -35,20 +37,17 @@
     margin-bottom: 1rem;
     outline: none;
     border: none;
-    border-bottom: 1px solid currentColor;
+    border-bottom: 1px solid var(--text-color-disabled);
     background: none;
     padding: 0.5rem;
-    /*color: #fff;*/
     font-size: 1rem;
   }
 
   .input::placeholder {
-    opacity: 0.5;
-    /*color: #fff;*/
-    font-weight: 300;
+    color: var(--text-color-disabled);
   }
 
   .input:focus {
-    border-bottom: 1px solid #bb99ff;
+    border-bottom: 1px solid var(--primary-color);
   }
 </style>
