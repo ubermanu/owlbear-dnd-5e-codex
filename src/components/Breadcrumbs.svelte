@@ -3,7 +3,7 @@
   import Link from './Link.svelte'
 
   // Generates the breadcrumbs from the current page URL
-  $: breadcrumbs = $page.url
+  $: breadcrumbs = $page.url.pathname
     .replace(/^\/api\//, '')
     .split('/')
     .filter(Boolean)
@@ -21,7 +21,7 @@
     <Link class="item" url="">codex</Link>
     {#each breadcrumbs as crumb}
       <span class="separator">/</span>
-      {#if crumb.url === $page.url}
+      {#if crumb.url === $page.url.pathname}
         <span class="item current">{crumb.name}</span>
       {:else}
         <Link class="item" url={crumb.url}>{crumb.name}</Link>

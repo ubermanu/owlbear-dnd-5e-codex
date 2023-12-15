@@ -10,8 +10,11 @@
   async function search(query) {
     if (!query) {
       await goto('')
+      return
     }
-    // TODO: Go to with search params
+
+    const endpoint = $page.url.pathname.split('/').slice(0, 3).join('/')
+    await goto(`${endpoint}?name=${query}`)
   }
 
   // TODO: Update input placeholder (search by name, etc.)
@@ -37,8 +40,8 @@
             </li>
           {/each}
         </ul>
-      {:else if $page.url}
-        <svelte:component this={view($page.url)} data={$page.data} />
+      {:else if $page.url.pathname.length > 1}
+        <svelte:component this={view($page.url.pathname)} data={$page.data} />
       {:else}
         <ul class="search-results">
           {#each categories as item}
@@ -77,13 +80,13 @@
     background: none;
     padding: 0.5rem;
     color: #fff;
-    font-weight: 300;
     font-size: 1rem;
   }
 
   .input::placeholder {
     opacity: 0.5;
     color: #fff;
+    font-weight: 300;
   }
 
   .input:focus {
