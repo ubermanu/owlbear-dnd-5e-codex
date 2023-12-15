@@ -53,39 +53,41 @@
       </tbody>
     </table>
 
-    <h3>Spell casting</h3>
-    <table class="levels">
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th colspan="9">~ Spell Slots per Spell Level ~</th>
-        </tr>
-        <tr>
-          <th>Level</th>
-          <th>Cantrips Known</th>
-          {#each Array.from({ length: 9 }) as _, i}
-            <th>Lv {i + 1}</th>
-          {/each}
-        </tr>
-      </thead>
-      <tbody>
-        {#each levels as { level, spellcasting }}
+    {#if levels[0].spellcasting}
+      <h3>Spell casting</h3>
+      <table class="levels">
+        <thead>
           <tr>
-            <td class="nb">{level}</td>
-            {#if spellcasting}
-              <td class="nb">{spellcasting.cantrips_known}</td>
-              {#each Array.from({ length: 9 }) as _, i}
-                <td class="nb">
-                  {spellcasting[`spell_slots_level_${i + 1}`] || ''}
-                </td>
-              {/each}
-            {/if}
+            <th></th>
+            <th></th>
+            <th></th>
+            <th colspan="9">~ Spell Slots per Spell Level ~</th>
           </tr>
-        {/each}
-      </tbody>
-    </table>
+          <tr>
+            <th>Level</th>
+            <th>Cantrips Known</th>
+            {#each Array.from({ length: 9 }) as _, i}
+              <th>Lv {i + 1}</th>
+            {/each}
+          </tr>
+        </thead>
+        <tbody>
+          {#each levels as { level, spellcasting }}
+            <tr>
+              <td class="nb">{level}</td>
+              {#if spellcasting}
+                <td class="nb">{spellcasting.cantrips_known}</td>
+                {#each Array.from({ length: 9 }) as _, i}
+                  <td class="nb">
+                    {spellcasting[`spell_slots_level_${i + 1}`] || ''}
+                  </td>
+                {/each}
+              {/if}
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    {/if}
   {/if}
 {/await}
 
