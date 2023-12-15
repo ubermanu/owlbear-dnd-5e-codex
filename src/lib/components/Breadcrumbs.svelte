@@ -22,9 +22,9 @@
     class="breadcrumbs flex items-center gap-1 text-sm font-light text-disabled"
   >
     <a class="hover:text-primary" href="/">codex</a>
-    {#each breadcrumbs as crumb}
+    {#each breadcrumbs as crumb, i}
       <span class="separator">/</span>
-      {#if crumb.url === $page.url.pathname}
+      {#if i === breadcrumbs.length - 1}
         <span class="text-primary">{crumb.name}</span>
       {:else}
         <a class="hover:text-primary" href={crumb.url}>{crumb.name}</a>

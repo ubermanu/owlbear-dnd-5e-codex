@@ -27,7 +27,7 @@
 </script>
 
 <input
-  class="mb-1 border-b border-disabled bg-transparent p-1 text-base placeholder-disabled focus:border-primary focus:outline-none"
+  class="mb-3 border-b border-disabled bg-transparent p-1 text-base placeholder-disabled focus:border-primary focus:outline-none"
   autocomplete="off"
   type="text"
   placeholder="Search..."
