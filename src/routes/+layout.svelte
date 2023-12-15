@@ -1,10 +1,12 @@
 <script>
+  import 'the-new-css-reset/css/reset.css'
+  import '../app.css'
   import { debounce } from 'radash'
-  import { goto } from './lib/navigation.js'
-  import { page } from './lib/stores.js'
-  import { categories } from './lib/api.js'
-  import { view } from './router.js'
-  import Breadcrumbs from './components/Breadcrumbs.svelte'
+  import { goto } from '$lib/navigation.js'
+  import { page } from '$lib/stores.js'
+  import { categories } from '$lib/api.js'
+  import { view } from '../router.js'
+  import Breadcrumbs from '../components/Breadcrumbs.svelte'
 
   /** @param {string} query */
   async function search(query) {
