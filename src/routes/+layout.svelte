@@ -1,6 +1,5 @@
 <script>
-  import 'the-new-css-reset/css/reset.css'
-  import '../app.css'
+  import '../app.postcss'
 
   import { page } from '$app/stores'
   import { goto } from '$app/navigation'
@@ -22,8 +21,6 @@
 
     await goto(`${endpoint}?name=${query}`, { keepFocus: true })
   }
-
-  $: console.log($page.url.pathname)
 
   // TODO: Update input placeholder (search by name, etc.)
 </script>
