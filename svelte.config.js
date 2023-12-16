@@ -12,7 +12,13 @@ export default {
       fallback: 'index.html',
     }),
   },
+
   // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
   // for more information about preprocessors
   preprocess: vitePreprocess(),
+
+  // Custom base path for GitHub Pages
+  paths: {
+    base: process.env.SVELTEKIT_BASE_URL || '',
+  },
 }
