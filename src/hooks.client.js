@@ -1,15 +1,12 @@
 // Preload the SDK on the client side, so that it's available
 import OBR from '@owlbear-rodeo/sdk'
 
-await new Promise((resolve) => {
+window.OBR = await new Promise((resolve) => {
   if (!OBR.isAvailable) {
-    resolve()
+    resolve({ isAvailable: false })
   } else if (OBR.isReady) {
-    resolve()
+    resolve(OBR)
   } else {
-    OBR.onReady(() => resolve())
+    OBR.onReady(() => resolve(OBR))
   }
 })
-
-console.log('OBR is ready on the client side')
-window.OBR = OBR
