@@ -104,12 +104,3 @@
     </a>
   {/each}
 </div>
-
-<h3 class="subtitle">Starting Equipment Options</h3>
-<div class="tags">
-  {#each data.starting_equipment_options as starting_equipment_option}
-    <span class="tag">
-      {starting_equipment_option.choose} from...
-    </span>
-  {/each}
-</div>
