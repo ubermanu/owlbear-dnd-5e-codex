@@ -1,6 +1,7 @@
 <script>
   import Breadcrumbs from '$lib/components/Breadcrumbs.svelte'
   import SearchBar from '$lib/components/SearchBar.svelte'
+  import ResultCount from '$lib/components/ResultCount.svelte'
 
   /** @type {any & { count?: number }} */
   export let data
@@ -19,8 +20,6 @@
   </div>
   <footer class="mt-2 flex items-center justify-between text-sm">
     <Breadcrumbs />
-    {#if data.count}
-      <span>{`${data.count} results`}</span>
-    {/if}
+    <ResultCount />
   </footer>
 </main>
