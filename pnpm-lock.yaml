@@ -20,6 +20,9 @@ dependencies:
   radash:
     specifier: ^11.0.0
     version: 11.0.0
+  svelte-feather-icons:
+    specifier: ^4.1.0
+    version: 4.1.0
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -2169,6 +2172,12 @@ packages:
       - sugarss
     dev: true
 
+  /svelte-feather-icons@4.1.0:
+    resolution: {integrity: sha512-fcTL4VzEN4BoccQJjKiui0b9DWEsmO6zGpI0tQTJbthRtNrYheoU487zyA1BD8rj9kj6jbKGmGVo7zbSdRvMvA==}
+    dependencies:
+      svelte: 3.59.2
+    dev: false
+
   /svelte-hmr@0.15.3(svelte@4.2.8):
     resolution: {integrity: sha512-41snaPswvSf8TJUhlkoJBekRrABDXDMdpNpT2tfHIv4JuhgvHqLMhEPGtaQn0BmbNSTkuz2Ed20DF2eHw0SmBQ==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
@@ -2225,6 +2234,11 @@ packages:
       svelte: 4.2.8
       typescript: 5.3.3
     dev: true
+
+  /svelte@3.59.2:
+    resolution: {integrity: sha512-vzSyuGr3eEoAtT/A6bmajosJZIUWySzY2CzB3w2pgPvnkUjGqlDnsNnA0PMO+mMAhuyMul6C2uuZzY6ELSkzyA==}
+    engines: {node: '>= 8'}
+    dev: false
 
   /svelte@4.2.8:
     resolution: {integrity: sha512-hU6dh1MPl8gh6klQZwK/n73GiAHiR95IkFsesLPbMeEZi36ydaXL/ZAb4g9sayT0MXzpxyZjR28yderJHxcmYA==}
