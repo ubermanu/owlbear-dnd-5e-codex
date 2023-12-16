@@ -32,8 +32,7 @@ main {
 }
 
 .stats dt {
-  @apply text-sm;
-  color: var(--text-color-disabled);
+  @apply text-sm text-disabled;
 }
 
 .tag {
@@ -61,29 +60,18 @@ main {
 }
 
 .levels {
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
-  border-collapse: collapse;
-  border-spacing: 0;
-  background: #232632;
-  width: fit-content;
+  @apply w-fit rounded;
+  background: var(--background-color);
 }
 
 .levels th {
-  padding: 0.2rem 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.8em;
-  text-align: center;
+  @apply px-3 py-1.5 text-center text-sm text-disabled;
 }
 
 .levels td {
-  padding: 0.2rem 1rem;
-}
-
-.levels td:first-child {
-  text-align: center;
+  @apply px-3 py-1.5 text-center;
 }
 
 .levels tbody tr:nth-child(odd) {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--surface-color);
 }
