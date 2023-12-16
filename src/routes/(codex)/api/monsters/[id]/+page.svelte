@@ -2,7 +2,7 @@
   import Case from 'case'
   import fracty from 'fracty'
 
-  import { API_URL } from '$lib/api.js'
+  import { PUBLIC_API_URL } from '$env/static/public'
   import { md } from '$lib/format.js'
 
   /** @type {import('$lib/types.js').Monster} */
@@ -13,7 +13,7 @@
   <div class="float-right m-4 mt-0">
     <img
       class="block rounded-sm shadow"
-      src={API_URL.concat(data.image)}
+      src={PUBLIC_API_URL.concat(data.image)}
       width="200"
       alt=""
     />
@@ -22,7 +22,7 @@
 
 <h2 class="title">{data.name}</h2>
 
-<p class="text-disabled mb-4 italic">
+<p class="mb-4 italic text-disabled">
   {data.size}
   {data.type}
   {#if data.subtype}
@@ -209,7 +209,7 @@
   }
 
   .abilities th {
-    @apply text-disabled px-3 py-1 text-center text-sm font-normal uppercase;
+    @apply px-3 py-1 text-center text-sm font-normal uppercase text-disabled;
   }
 
   .abilities td {
