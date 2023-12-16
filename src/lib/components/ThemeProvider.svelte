@@ -14,7 +14,7 @@
     theme = await OBR.theme.getTheme()
 
     // Update the theme when it changes
-    OBR.theme.onChange((/** @type {any} */ newTheme) => {
+    OBR.theme.onChange((newTheme) => {
       theme = newTheme
     })
   })
