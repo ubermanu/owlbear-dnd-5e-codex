@@ -32,9 +32,9 @@
       <tbody>
         {#each levels as { level, prof_bonus, features }}
           <tr>
-            <td class="nb">{level}</td>
-            <td class="nb">+{prof_bonus}</td>
-            <td>
+            <td>{level}</td>
+            <td>+{prof_bonus}</td>
+            <td class="!text-left">
               {#if features.length > 0}
                 {#each features as feature}
                   <a class="tag" href={feature.url}>{feature.name}</a>
@@ -69,11 +69,11 @@
         <tbody>
           {#each levels as { level, spellcasting }}
             <tr>
-              <td class="nb">{level}</td>
+              <td>{level}</td>
               {#if spellcasting}
-                <td class="nb">{spellcasting.cantrips_known}</td>
+                <td>{spellcasting.cantrips_known}</td>
                 {#each Array.from({ length: 9 }) as _, i}
-                  <td class="nb">
+                  <td>
                     {spellcasting[`spell_slots_level_${i + 1}`] || ''}
                   </td>
                 {/each}
@@ -113,14 +113,3 @@
     </span>
   {/each}
 </div>
-
-<style>
-  h3 {
-    margin-bottom: 0.5em;
-    font-size: 1.1rem;
-  }
-
-  .nb {
-    text-align: center;
-  }
-</style>
