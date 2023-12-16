@@ -1,12 +1,11 @@
 <script>
   import { onMount } from 'svelte'
-  import { obr } from '$lib/owlbear-sdk.js'
 
   /** @type {import('@owlbear-rodeo/sdk').Theme} */
   let theme
 
   onMount(async () => {
-    const OBR = await obr()
+    const { OBR } = window
 
     if (!OBR.isAvailable) {
       return
