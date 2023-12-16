@@ -9,8 +9,15 @@
     </a>
   </header>
 
-  <label class="checkbox">
-    <input type="checkbox" />
-    <span class="label">Hide the Codex for players</span>
-  </label>
+  <div class="flex-grow">
+    <h1 class="mb-4 text-2xl font-bold">Settings</h1>
+    <label class="checkbox">
+      <input type="checkbox" />
+      <span class="label">Hide the Codex for players</span>
+    </label>
+  </div>
+
+  <footer class="flex justify-end">
+    <p class="text-sm">D&D 5e Codex v0.1.0</p>
+  </footer>
 </main>
