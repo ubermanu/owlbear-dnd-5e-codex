@@ -15,5 +15,5 @@ export function md(text) {
     text = [text]
   }
 
-  return marked(text.join('\n\n').replace(/\|\n\n\|/g, '|\n|'))
+  return marked(text.join('\n'), { breaks: true })
 }
