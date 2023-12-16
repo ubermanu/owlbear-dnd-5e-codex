@@ -5,9 +5,7 @@
 </script>
 
 <main class="flex h-screen flex-col p-4">
-  <header class="mb-3 flex items-center gap-4">
-    <SearchBar />
-  </header>
+  <SearchBar />
   <div class="min-h-0 flex-grow">
     <div
       class="max-h-full overflow-y-auto scrollbar-thin scrollbar-track-muted scrollbar-thumb-disabled scrollbar-track-rounded scrollbar-thumb-rounded"

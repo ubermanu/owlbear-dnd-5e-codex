@@ -2,11 +2,12 @@
   import { debounce } from 'radash'
   import { page } from '$app/stores'
   import { goto } from '$app/navigation'
+  import Case from 'case'
+
+  $: endpoint = $page.url.pathname.split('/').slice(0, 3).join('/')
 
   /** @param {string} query */
   async function search(query) {
-    const endpoint = $page.url.pathname.split('/').slice(0, 3).join('/')
-
     if (endpoint === '/') {
       return
     }
@@ -23,13 +24,19 @@
     await search(e.target.value)
   })
 
-  // TODO: Update input placeholder (search by name, etc.)
+  // Update input placeholder (search by name, etc.)
+  $: category = endpoint.split('/')[2]
+  $: placeholder = category
+    ? Case.sentence(`Search ${Case.title(category)} by name...`)
+    : 'Search'
 </script>
 
-<input
-  class="w-full border-b border-disabled bg-transparent p-1 text-base placeholder-disabled focus:border-primary focus:outline-none"
-  autocomplete="off"
-  type="text"
-  placeholder="Search..."
-  on:input={onInput}
-/>
+{#if endpoint && endpoint !== '/'}
+  <input
+    class="mb-3 w-full border-b border-disabled bg-transparent p-1 text-base placeholder-disabled focus:border-primary focus:outline-none"
+    autocomplete="off"
+    type="text"
+    {placeholder}
+    on:input={onInput}
+  />
+{/if}
