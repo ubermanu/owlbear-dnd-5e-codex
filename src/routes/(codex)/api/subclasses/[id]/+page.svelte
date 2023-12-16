@@ -34,7 +34,7 @@
         {#each levels as { level, features }}
           <tr>
             <td>{level}</td>
-            <td>
+            <td class="!text-left">
               {#each features as feature}
                 <a class="tag" href={feature.url}>{feature.name}</a>
               {/each}
