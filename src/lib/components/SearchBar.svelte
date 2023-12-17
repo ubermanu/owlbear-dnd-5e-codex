@@ -4,13 +4,11 @@
   import { goto } from '$app/navigation'
   import Case from 'case'
 
-  $: endpoint = $page.url.pathname.split('/').slice(0, 3).join('/')
+  $: category = $page.params.category || ''
 
-  /** @param {string} query */
-  async function search(query) {
-    if (endpoint === '/') {
-      return
-    }
+  const onInput = debounce({ delay: 200 }, async (e) => {
+    const query = e.target.value
+    const endpoint = `/api/${category}`
 
     if (!query) {
       await goto(endpoint, { keepFocus: true })
@@ -18,20 +16,12 @@
     }
 
     await goto(`${endpoint}?name=${query}`, { keepFocus: true })
-  }
-
-  const onInput = debounce({ delay: 200 }, async (e) => {
-    await search(e.target.value)
   })
 
-  // Update input placeholder (search by name, etc.)
-  $: category = endpoint.split('/')[2]
-  $: placeholder = category
-    ? Case.sentence(`Search ${Case.title(category)} by name...`)
-    : 'Search'
+  $: placeholder = Case.sentence(`Filter ${Case.title(category)} by name...`)
 </script>
 
-{#if endpoint && endpoint !== '/'}
+{#if category}
   <input
     class="mb-3 w-full border-b border-disabled bg-transparent p-1 text-base placeholder-disabled focus:border-primary focus:outline-none"
     autocomplete="off"
