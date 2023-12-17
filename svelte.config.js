@@ -12,11 +12,6 @@ export default {
       assets: 'build',
       fallback: 'index.html',
     }),
-
-    // Custom base path for GitHub Pages
-    paths: {
-      base: process.env.SVELTEKIT_BASE_URL || '',
-    },
   },
 
   // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
