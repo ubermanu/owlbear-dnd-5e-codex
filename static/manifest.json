@@ -2,6 +2,9 @@
   "name": "DnD 5e Codex",
   "version": "1.0.0",
   "manifest_version": 1,
+  "author": "ubermanu",
+  "homepage_url": "https://github.com/ubermanu/owlbear-dnd-5e-codex",
+  "icon": "/icon-alt.svg",
   "action": {
     "title": "DnD 5e Codex",
     "icon": "/icon.svg",
