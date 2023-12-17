@@ -1,13 +1,13 @@
 {
-  "name": "DnD 5e Codex",
-  "version": "1.0.0",
+  "name": "D&D 5e Codex",
+  "version": "1.0.1",
   "manifest_version": 1,
   "author": "ubermanu",
-  "description": "Quickly search for DnD 5e classes, spells, monsters, items, etc.",
+  "description": "Quickly search for D&D 5e classes, spells, monsters, items, etc.",
   "homepage_url": "https://github.com/ubermanu/owlbear-dnd-5e-codex",
   "icon": "/icon-alt.svg",
   "action": {
-    "title": "DnD 5e Codex",
+    "title": "D&D 5e Codex",
     "icon": "/icon.svg",
     "popover": "/",
     "height": 700,
